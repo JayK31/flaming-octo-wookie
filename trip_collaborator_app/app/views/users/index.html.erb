@@ -3,7 +3,7 @@
 <% @users.each do |user| %>
   <ul>
     <li>User ID: <%= user.id %></li>
-    <li>Name: <%= user.name.capitalize %></li>
+    <li>Name: <a href="/users/<%= user.id %>"><%= user.name.capitalize %></a></li>
     <li>Email: <%= user.email %></li>
   </ul>
 <% end %>
