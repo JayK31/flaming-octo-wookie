@@ -19,8 +19,10 @@ development:
   encoding: unicode
   database: trip_collaborator_app_development
   pool: 5
-  username: trip_collaborator_app
+  username: jay
   password:
+  host: localhost
+
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,13 +50,15 @@ test:
   encoding: unicode
   database: trip_collaborator_app_test
   pool: 5
-  username: trip_collaborator_app
+  username: jay
   password:
+  host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
   database: trip_collaborator_app_production
   pool: 5
-  username: trip_collaborator_app
+  username: jay
   password:
+  host: localhost
