@@ -20,4 +20,10 @@ class SessionController < ApplicationController
     end
   end
 
+  def destroy
+    #in destroy action, setting session: user_id to nil
+    session[:user_id] = nil
+    redirect_to("/")
+  end
+
 end
