@@ -7,6 +7,7 @@ TripCollaboratorApp::Application.routes.draw do
 
   resources :users
   resources :trips
+  resources :items
 
 # just the three routes we need for sessions
   get  "/session/new"  => "session#new"

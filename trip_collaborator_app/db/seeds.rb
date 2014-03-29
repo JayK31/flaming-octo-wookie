@@ -12,11 +12,11 @@ user_doc = User.create({name: "Doc", email: "doc@doc.com", password: "password",
 user_jimbo = User.create({name: "Jimbo", email: "jimbo@jimbo.com", password: "password", password_confirmation: "password"})
 
 trip1 = Trip.create({start: "London", destination: "China", user_id: 1})
-trip1 = Trip.create({start: "Ireland", destination: "Scotland", user_id: 3})
+trip1 = Trip.create({start: "Ireland", destination: "Scotland", user_id: 2})
 trip1 = Trip.create({start: "Finland", destination: "Florida", user_id: 4})
-trip1 = Trip.create({start: "Maine", destination: "Japan", user_id: 8})
+trip1 = Trip.create({start: "Maine", destination: "Japan", user_id: 3})
 trip1 = Trip.create({start: "The Shire", destination: "Mordor", user_id: 1})
-trip1 = Trip.create({start: "California", destination: "Milwaukee", user_id: 8})
+trip1 = Trip.create({start: "California", destination: "Milwaukee", user_id: 3})
 trip1 = Trip.create({start: "Toronto", destination: "Nepal", user_id: 4})
 
 

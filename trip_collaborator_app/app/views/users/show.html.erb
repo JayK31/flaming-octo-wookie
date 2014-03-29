@@ -1,6 +1,11 @@
 <h1>Hello, <%= @user.name %></h1>
 
-
+<a href="/users">View Users</a><br/>
+<a href="/users/<%= current_user.id %>/edit">Update  My Account</a><br/>
+<a href="/trips">View My Trips</a><br/>
+<a href="/trips/new">Create a New Trip</a><br/>
+<a href="/items/new">Add an Item</a><br/>
+<a href="/logout">Logout</a><br/>
 <a href="/">Home</a>
 
 <%= form_for(@user, method: "delete") do |f| %>

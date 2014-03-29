@@ -1,0 +1,13 @@
+<!-- app/views/items -->
+
+<h1>List of Items</h1>
+<% @items.each do |item| %>
+  <% if @current_user.id == item.user_id %>
+    <p>Item Name: <a href="items/<%= item.id %>"><%= item.name %></a></p>
+    <p>Quantity: <%= item.quantity %></p>
+  <% end %>
+<% end %>
+
+<a href="/">Home</a><br/>
+<a href="/items/new">Add Another Item</a>
+

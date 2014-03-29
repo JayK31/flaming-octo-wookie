@@ -29,9 +29,5 @@ describe User do
     expect( user ).to validate_uniqueness_of(:email)
   end
 
-  it "should be able to update information" do
-    user.update(name: "Jimbo")
-    expect( user.name ).to eq "Jimbo"
-  end
 end
 

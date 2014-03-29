@@ -1,0 +1,16 @@
+<!-- app/views/items -->
+
+<h1>Hi</h1>
+
+<p>Name: <%= @item.name %></p>
+<p>Quantity: <%= @item.quantity %></p>
+
+<p><a href="/items/<%= @item.id %>/edit">Edit Item</a></p>
+
+<!-- use button to delete trip for now -->
+<%= form_for(@item, method: "delete") do |f| %>
+  <%= f.submit("Delete This Item") %>
+<% end %>
+
+<p><a href="/">Home</a></p>
+<p><a href="/items">Back to My Items</a></p>
