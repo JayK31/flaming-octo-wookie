@@ -13,11 +13,9 @@ class ItemsController < ApplicationController
 
   #items POST
   def create
-    @item = Item.new(
-      name: params[:item][:name],
-      quantity: params[:item][:quantity],
-      user_id: session[:user_id]
-    )
+    @item = Item.new(item_params)
+    #have to assign user_id during create, can't pass it using require because it is not a parameter we're getting from user
+    @item[:user_id] = session[:user_id]
 
     if @item.save
       redirect_to("/items")
@@ -39,10 +37,7 @@ class ItemsController < ApplicationController
   #items/:id POST
   def update
     item = Item.find(params[:id])
-    item.update(
-      name: params[:item][:name],
-      quantity: params[:item][:quantity]
-      )
+    item.update(item_params)
 
     redirect_to(item_path(item))
   end
@@ -53,5 +48,14 @@ class ItemsController < ApplicationController
     item.destroy
 
     redirect_to("/items")
+  end
+
+  #create private method user_params to clean up create method(FMSC)
+  private
+  def item_params
+    params.require(:item).permit(
+      :name,
+      :quantity
+    )
   end
 end

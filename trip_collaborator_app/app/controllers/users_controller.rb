@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   #users/ POST
   def create
     @user = User.new(user_params)
+
     if @user.save
       redirect_to("/users")
     else
@@ -46,9 +47,6 @@ class UsersController < ApplicationController
     user.destroy
   redirect_to("/")
   end
-
-
-
 
   #create private method user_params to clean up create method(FMSC)
   private

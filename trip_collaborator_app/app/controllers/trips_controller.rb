@@ -14,11 +14,9 @@ class TripsController < ApplicationController
 
   #"/trips" POST
   def create
-    @trip = Trip.new(
-      start: params[:trip][:start],
-      destination: params[:trip][:destination],
-      user_id: session[:user_id]
-    )
+    @trip = Trip.new(trip_params)
+    #have to assign user_id during create, can't pass it using require because it is not a parameter we're getting from user
+    @trip[:user_id] = session[:user_id]
 
     if @trip.save
       redirect_to("/trips")
@@ -40,10 +38,7 @@ class TripsController < ApplicationController
   #"/trips/:id" POST
   def update
     trip = Trip.find(params[:id])
-    trip.update(
-      start: params[:trip][:start],
-      destination: params[:trip][:destination]
-      )
+    trip.update(trip_params)
 
     redirect_to("/trips")
   end
@@ -53,5 +48,14 @@ class TripsController < ApplicationController
     trip = Trip.find(params[:id])
     trip.destroy
     redirect_to("/trips")
+  end
+
+#create private method user_params to clean up create method(FMSC)
+  private
+  def trip_params
+    params.require(:trip).permit(
+      :start,
+      :destination
+     )
   end
 end
