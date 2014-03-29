@@ -2,3 +2,7 @@
 
 
 <a href="/">Home</a>
+
+<%= form_for(@user, method: "delete") do |f| %>
+  <%= f.submit("Delete My Account") %>
+<% end %>

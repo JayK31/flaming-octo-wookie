@@ -3,7 +3,9 @@
 
 <% if logged_in? %>
   <h3>Hi, <%= current_user.name %></h3>
-  <a href="users">View Users</a>
+  <a href="users">View Users</a><br/>
+  <a href="users/<%= current_user.id %>/edit">Update My Account</a><br/>
+  <a href="users/<%= current_user.id %>">My Account Page</a><br/>
   <a href="/logout">Logout</a>
 <% else %>
   <a href="users/new">Sign Up!</a><br/>
