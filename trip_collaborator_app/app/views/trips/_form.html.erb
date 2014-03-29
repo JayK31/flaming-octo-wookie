@@ -1,0 +1,9 @@
+<!-- create _form for new/edit forms -->
+<%= form_for(@trip) do |f| %>
+  <%= f.label(:start) %>
+  <%= f.text_field(:start) %>
+  <%= f.label(:destination) %>
+  <%= f.text_field(:destination) %>
+  <%= f.submit %>
+<% end %>
+

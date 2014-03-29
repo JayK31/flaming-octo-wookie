@@ -18,17 +18,21 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  # def require_admin
-  #   if logged_in? && current_user.admin
-  #     return true
-  #   else
-  #     flash[:error] = "Sorry, access denied. Be better."
-  #     redirect_to(root_path)
-  #   end
-  # end
+ # def signed_up
+ #    @user_email = User.find_by(email: session[:email])
+ #    @all_users = User.all
+ #    if @all_users.email.include? @user_email
+ #      return true
+ #    else
+ #      flash[:error] = "Sorry, that e-mail address does not exist. Please sign up!"
+ #      redirect_to("/session/new")
+ #    end
+ #  end
 
   # declare a method as a helper
   # http://api.rubyonrails.org/classes/AbstractController/Helpers/ClassMethods.html#method-i-helper_method
   # which means we can use the methods in the view as well
   helper_method(:current_user, :logged_in?)
 end
+
+

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  # "/"
+  # "/users"
   def index
     @users = User.all
   end

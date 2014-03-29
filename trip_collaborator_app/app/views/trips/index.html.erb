@@ -1,0 +1,15 @@
+<!-- app/views/trips -->
+
+<h1>My Upcoming Trips</h1>
+
+<!-- Matching the current_user id with the trip user id in order to show the current user's trips -->
+<p>Here are all of my trips: </p>
+<% @trips.each do |trip| %>
+  <% if @current_user.id == trip.user_id %>
+    <p>Trip Name: <a href="/trips/<%= trip.id %>"><%= trip.start %></a> </p>
+    <p>Trip Destination: <%= trip.destination %> </p>
+   <% end %>
+<% end %>
+
+<a href="/">Home</a>
+
