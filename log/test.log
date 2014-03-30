@@ -1195,3 +1195,36 @@ Migrating to AddTripIdToItems (20140329224801)
   [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
   [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
   [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (246.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (290.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140328191534)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (505.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140328191534"]]
+  [1m[36m (37.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTrips (20140329184607)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (254.0ms)[0m  [1mCREATE TABLE "trips" ("id" serial primary key, "start" character varying(255), "destination" character varying(255), "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (150.2ms)[0m  CREATE INDEX "index_trips_on_user_id" ON "trips" ("user_id")
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140329184607"]]
+  [1m[35m (41.5ms)[0m  COMMIT
+Migrating to CreateItems (20140329201020)
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (126.2ms)[0m  CREATE TABLE "items" ("id" serial primary key, "name" character varying(255), "quantity" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (118.5ms)[0m  [1mCREATE INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140329201020"]]
+  [1m[36m (35.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddTripIdToItems (20140329224801)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "items" ADD COLUMN "trip_id" integer[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140329224801"]]
+  [1m[36m (27.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateInvites (20140330200823)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (355.4ms)[0m  [1mCREATE TABLE "invites" ("id" serial primary key, "user_id" integer, "trip_id" integer, "is_going?" boolean DEFAULT 't', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (279.3ms)[0m  CREATE INDEX "index_invites_on_user_id" ON "invites" ("user_id")
+  [1m[36m (97.5ms)[0m  [1mCREATE INDEX "index_invites_on_trip_id" ON "invites" ("trip_id")[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140330200823"]]
+  [1m[36m (34.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

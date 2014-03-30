@@ -9,6 +9,7 @@ TripCollaboratorApp::Application.routes.draw do
   resources :trips
   resources :items
   resources :lists
+  resources :invites
 
   # get "/trips/:id/items" => "items#index"
 

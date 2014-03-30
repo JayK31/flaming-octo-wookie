@@ -18,9 +18,12 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
+  # def current_trip
+  #   @current_trip ||= Trip.find_by(id: session[:trip_id])
+  # end
+
   # def trip_leader?
-  #   @trip = Trip.find(params[:id])
-  #   return true if @trip.user_id == @current_user.id
+  #   return true if @current_trip.user_id == @current_user.id
   # end
 
   # def current_trip
