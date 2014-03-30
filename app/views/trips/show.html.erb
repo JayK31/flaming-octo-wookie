@@ -1,0 +1,21 @@
+<!-- app/views/trips -->
+
+<h1>Going to <%= @trip.destination %></h1>
+
+<h2>Trip Details</h2>
+<p>Trip Start: <%= @trip.start %></p>
+<p>Trip Destination: <%= @trip.destination %></p>
+
+<a href="/trips/<%= @trip.id %>/add_new">Add Item to Trip Inventory</a><br/>
+<a href="/trips/<%= @trip.id %>/items">View Trip Items</a><br/>
+<a href="/trips/<%= @trip.id %>/edit">Edit Trip</a>
+
+
+
+<!-- use button to delete trip for now -->
+<%= form_for(@trip, method: "delete") do |f| %>
+  <%= f.submit("Delete This Trip") %>
+<% end %>
+
+<a href="/">Home</a>
+

@@ -1,0 +1,11 @@
+<h1>Welcome to TripCollaborator </h1>
+
+<% @users.each do |user| %>
+  <ul>
+    <li>User ID: <%= user.id %></li>
+    <li>Name: <a href="/users/<%= user.id %>"><%= user.name.capitalize %></a></li>
+    <li>Email: <%= user.email %></li>
+  </ul>
+<% end %>
+
+<a href="/">Home</a>
