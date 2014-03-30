@@ -21,11 +21,9 @@ class ItemsController < ApplicationController
     #have to assign user_id during create, can't pass it using require because it is not a parameter we're getting from user
     @item[:user_id] = session[:user_id]
     @item[:trip_id] = params[:trip_id].first[0].to_i
-    binding.pry
-    # @item[:trip_id] = @trip.id
 
     if @item.save
-      redirect_to("/items")
+      redirect_to("/trips")
     else
       render :new
     end
@@ -39,6 +37,7 @@ class ItemsController < ApplicationController
   #items/:id/edit --> form
   def edit
     @item = Item.find(params[:id])
+    @trip = Trip.find(params[:id])
   end
 
   #items/:id POST
@@ -54,7 +53,7 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     item.destroy
 
-    redirect_to("/items")
+    redirect_to("/trips")
   end
 
   #create private method user_params to clean up create method(FMSC)

@@ -19,6 +19,7 @@ describe Trip do
     it { should validate_presence_of(:start) }
     it { should validate_presence_of(:destination) }
     it { should belong_to(:user) }
+    it { should have_many(:items) }
   end
 end
 

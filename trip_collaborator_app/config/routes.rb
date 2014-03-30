@@ -7,7 +7,7 @@ TripCollaboratorApp::Application.routes.draw do
 
   resources :users
   resources :trips
-  resources :items # except: :new
+  resources :items
   resources :lists
 
   # get "/trips/:id/items" => "items#index"
@@ -18,7 +18,9 @@ TripCollaboratorApp::Application.routes.draw do
   get  "/logout"       => "session#destroy"
 
   get "/trips/:id/add_new" => "items#new"
+  # post "/trips/:id/add_new" => "items#index"
   get "/trips/:id/items" => "items#index"
+  get "/trips/:id/items/:id" => "items#show"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
