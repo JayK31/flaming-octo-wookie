@@ -15,9 +15,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      # @current_user = User.find(@user.id)
-      # session[:user_id] = @current_user.id
-      redirect_to(user_path(@user))
+      binding.pry
+      session[:user_id] = @user.id
+      redirect_to("/")
     else
       render :new
     end
@@ -38,7 +38,10 @@ class UsersController < ApplicationController
   #users/:id PUT
   def update
     user = User.find(params[:id])
-    user.update(user_params)
+    user.update(
+      name: params[:user][:name],
+      email: params[:user][:email]
+      )
 
     redirect_to(user_path(user))
   end

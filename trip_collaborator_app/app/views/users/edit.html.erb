@@ -1,4 +1,9 @@
-<%= render 'form' %>
-
-<a href="/">Home</a>
+<%= form_for(@user) do |f| %>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
+  <%= f.label(:email) %>
+  <%= f.text_field(:email) %>
+  <%= f.submit %>
+<% end %>
+<a href="/">Home</a><br/>
 <a href="/users/<%= @user.id %>">Back to My Account Page</a>

@@ -6,7 +6,7 @@
   <a href="users">View Users</a><br/>
   <a href="users/<%= current_user.id %>/edit">Update My Account</a><br/>
   <a href="users/<%= current_user.id %>">My Account Page</a><br/>
-  <a href="/trips">View Trips</a><br/>
+  <a href="/trips/users/<%= current_user.id %>">View My Trips</a><br/>
   <a href="/trips/new">Create a New Trip</a><br/>
   <a href="/logout">Logout</a>
 <% else %>

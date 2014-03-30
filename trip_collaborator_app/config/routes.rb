@@ -22,6 +22,7 @@ TripCollaboratorApp::Application.routes.draw do
   get "/trips/:id/items" => "items#index"
   get "/trips/:id/items/:id/edit" => "items#edit"
   get "/trips/:id/items/:id" => "items#show"
+  get "/trips/users/:id" => "trips#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

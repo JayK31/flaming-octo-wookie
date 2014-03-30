@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
+  # def trip_leader?
+  #   @trip = Trip.find(params[:id])
+  #   return true if @trip.user_id == @current_user.id
+  # end
+
   # def current_trip
   #   @current_trip ||= Trip.find(session[:trip_id])
   # end
@@ -36,7 +41,7 @@ class ApplicationController < ActionController::Base
   # declare a method as a helper
   # http://api.rubyonrails.org/classes/AbstractController/Helpers/ClassMethods.html#method-i-helper_method
   # which means we can use the methods in the view as well
-  helper_method(:current_user, :logged_in?)
+  helper_method(:current_user, :logged_in?, :trip_leader?)
 end
 
 

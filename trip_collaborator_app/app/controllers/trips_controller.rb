@@ -3,7 +3,12 @@ class TripsController < ApplicationController
   # "/trips"
   def index
     #define current user in order to display trips for that user only
+    # @trips = Trip.all
+
+    # @trips = Trip.find_by(user_id: params[:user_id])
     @trips = Trip.all
+    @user = User.find(params[:id])
+
     # @current_user ||= User.find(@user.id)
   end
 
