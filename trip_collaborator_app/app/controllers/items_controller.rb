@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     #have to assign user_id during create, can't pass it using require because it is not a parameter we're getting from user
     @item[:user_id] = session[:user_id]
+    # binding.pry
     @item[:trip_id] = params[:trip_id].first[0].to_i
 
     if @item.save
@@ -31,13 +32,18 @@ class ItemsController < ApplicationController
 
   #items/:id
   def show
+    # binding.pry
     @item = Item.find(params[:id])
+    @trip = Trip.find(@item.trip_id)
+    @user = User.find(@item.user_id)
+    # binding.pry
   end
 
   #items/:id/edit --> form
   def edit
     @item = Item.find(params[:id])
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(@item.trip_id)
+    # binding.pry
   end
 
   #items/:id POST

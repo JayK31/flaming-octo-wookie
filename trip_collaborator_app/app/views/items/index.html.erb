@@ -1,6 +1,6 @@
 <!-- app/views/items -->
 <a href="/">Home</a><br/>
-<h1>My Items</h1>
+<h1>Items for <%= @trip.destination %></h1>
 <% @items.each do |item| %>
   <% if @current_user.id == item.user_id %>
     <% if @trip.id == item.trip_id %>

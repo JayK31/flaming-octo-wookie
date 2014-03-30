@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   def index
     #define current user in order to display trips for that user only
     @trips = Trip.all
-    @current_user = User.find(session[:user_id])
+    # @current_user ||= User.find(@user.id)
   end
 
   #"/trips" --> direct to form
@@ -19,7 +19,7 @@ class TripsController < ApplicationController
     @trip[:user_id] = session[:user_id]
 
     if @trip.save
-      redirect_to("/trips")
+      redirect_to("/")
     else
       render :new
     end

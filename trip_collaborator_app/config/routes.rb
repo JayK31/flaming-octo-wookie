@@ -20,6 +20,7 @@ TripCollaboratorApp::Application.routes.draw do
   get "/trips/:id/add_new" => "items#new"
   # post "/trips/:id/add_new" => "items#index"
   get "/trips/:id/items" => "items#index"
+  get "/trips/:id/items/:id/edit" => "items#edit"
   get "/trips/:id/items/:id" => "items#show"
 
   # Example of regular route:

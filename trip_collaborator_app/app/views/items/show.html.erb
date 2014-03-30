@@ -1,11 +1,11 @@
 <!-- app/views/items -->
 
-<h1>Hi</h1>
+<h1>Hi <%= @user.name %></h1>
 
 <p>Name: <%= @item.name %></p>
 <p>Quantity: <%= @item.quantity %></p>
 
-<p><a href="/items/<%= @item.id %>/edit">Edit Item</a></p>
+<p><a href="/trips/<%= @item.trip_id %>/items/<%= @item.id %>/edit">Edit Item</a></p>
 
 <!-- use button to delete trip for now -->
 <%= form_for(@item, method: "delete") do |f| %>
