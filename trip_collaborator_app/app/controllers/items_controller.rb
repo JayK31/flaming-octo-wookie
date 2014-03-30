@@ -4,11 +4,15 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @current_user = User.find(session[:user_id])
+    @trip = Trip.find(params[:id])
   end
 
   # items/new --> form
   def new
+    # binding.pry
     @item = Item.new
+    @trip = Trip.find(params[:id])
+    # binding.pry
   end
 
   #items POST
@@ -16,6 +20,9 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     #have to assign user_id during create, can't pass it using require because it is not a parameter we're getting from user
     @item[:user_id] = session[:user_id]
+    @item[:trip_id] = params[:trip_id].first[0].to_i
+    binding.pry
+    # @item[:trip_id] = @trip.id
 
     if @item.save
       redirect_to("/items")
@@ -55,7 +62,8 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(
       :name,
-      :quantity
-    )
+      :quantity,
+      :trip_id
+      )
   end
 end

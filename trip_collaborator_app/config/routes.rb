@@ -7,12 +7,18 @@ TripCollaboratorApp::Application.routes.draw do
 
   resources :users
   resources :trips
-  resources :items
+  resources :items # except: :new
+  resources :lists
+
+  # get "/trips/:id/items" => "items#index"
 
 # just the three routes we need for sessions
   get  "/session/new"  => "session#new"
   post "/session"      => "session#create"
   get  "/logout"       => "session#destroy"
+
+  get "/trips/:id/add_new" => "items#new"
+  get "/trips/:id/items" => "items#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
+  # def current_trip
+  #   @current_trip ||= Trip.find(session[:trip_id])
+  # end
+
  # def signed_up
  #    @user_email = User.find_by(email: session[:email])
  #    @all_users = User.all

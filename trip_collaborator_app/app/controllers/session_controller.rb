@@ -8,6 +8,7 @@ class SessionController < ApplicationController
     #find user by given email
     user = User.find_by(email: params[:email])
 
+
     #check if we found user and they gave us correct password
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
