@@ -2,13 +2,14 @@
 <a href="/">Home</a><br/>
 <h1>Items for <%= @trip.destination %></h1>
 <% @items.each do |item| %>
-  <% if @current_user.id == item.user_id %>
     <% if @trip.id == item.trip_id %>
+      <p>Trip ID: <%= item.trip_id %></p>
       <p>Item Name: <a href="items/<%= item.id %>"><%= item.name %></a></p>
       <p>Quantity: <%= item.quantity %></p>
-      <p>Trip ID: <%= item.trip_id %></p>
+      <p>Description: <%= item.description %></p>
+      <p>Is someone bringing this item? <%= item.is_claimed? %></p>
+
     <% end %>
-  <% end %>
 <% end %>
 
 <a href="/">Home</a><br/>

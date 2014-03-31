@@ -9,10 +9,8 @@ class ItemsController < ApplicationController
 
   # items/new --> form
   def new
-    # binding.pry
     @item = Item.new
     @trip = Trip.find(params[:id])
-    # binding.pry
   end
 
   #items POST
@@ -20,11 +18,10 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     #have to assign user_id during create, can't pass it using require because it is not a parameter we're getting from user
     @item[:user_id] = session[:user_id]
-    # binding.pry
     @item[:trip_id] = params[:trip_id].first[0].to_i
 
     if @item.save
-      redirect_to("/trips")
+      redirect_to("/trips/users/session[:user_id]")
     else
       render :new
     end
@@ -32,26 +29,23 @@ class ItemsController < ApplicationController
 
   #items/:id
   def show
-    # binding.pry
     @item = Item.find(params[:id])
     @trip = Trip.find(@item.trip_id)
-    @user = User.find(@item.user_id)
-    # binding.pry
+    @user = User.find(session[:user_id])
   end
 
   #items/:id/edit --> form
   def edit
     @item = Item.find(params[:id])
     @trip = Trip.find(@item.trip_id)
-    # binding.pry
   end
 
-  #items/:id POST
+  #items/:id PUT
   def update
     item = Item.find(params[:id])
     item.update(item_params)
 
-    redirect_to(item_path(item))
+    redirect_to("/")
   end
 
   #items/:id DELETE
@@ -68,7 +62,10 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       :quantity,
-      :trip_id
+      :trip_id,
+      :is_claimed?,
+      :description,
+      :user_id
       )
   end
 end

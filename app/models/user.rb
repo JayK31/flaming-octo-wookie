@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
   validates_length_of :password, in: 8..16
   has_secure_password
   has_many :trips
-  has_many_and_belongs_to :items
+  has_many :items, :through => :trips
   has_many :invites
   has_many :trips, :through => :invites
 end
+

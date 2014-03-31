@@ -14,6 +14,6 @@
 class Item < ActiveRecord::Base
   validates :name, presence: true
   validates :quantity, presence: true
-  has_many_and_belongs_to :users
   belongs_to :trip
+  has_many :users, :through => :trips
 end

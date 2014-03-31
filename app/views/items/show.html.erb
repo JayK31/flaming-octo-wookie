@@ -1,16 +1,29 @@
 <!-- app/views/items -->
+<p><a href="/">Home</a></p>
+<p><a href="/trips/users/<%= @user.id %>">My Trips</a></p>
 
 <h1>Hi <%= @user.name %></h1>
 
 <p>Name: <%= @item.name %></p>
 <p>Quantity: <%= @item.quantity %></p>
+<p>For Trip: <%= @trip.destination %></p>
 
 <p><a href="/trips/<%= @item.trip_id %>/items/<%= @item.id %>/edit">Edit Item</a></p>
 
-<!-- use button to delete trip for now -->
-<%= form_for(@item, method: "delete") do |f| %>
-  <%= f.submit("Delete This Item") %>
+<!-- update item to include user_id and claimed if user wants to bring item -->
+<% if @item.is_claimed? == false %>
+  <%= form_for(@item, method: "put") do |f| %>
+    <%= f.hidden_field(:user_id, value: @user.id) %>
+    <%= f.hidden_field(:is_claimed?, value: true ) %>
+    <%= f.submit("Bring This Item!") %>
+  <% end %>
 <% end %>
 
-<p><a href="/">Home</a></p>
-<p><a href="/trips">My Trips</a></p>
+<!-- use button to delete trip for now -->
+<!-- only allow trip creators to delete trip -->
+<% if @trip.user_id == session[:user_id] %>
+  <%= form_for(@item, method: "delete") do |f| %>
+    <%= f.submit("Delete This Item") %>
+  <% end %>
+<% end %>
+
