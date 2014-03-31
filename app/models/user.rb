@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, case_sensitive: false
   validates_length_of :password, in: 8..16
   has_secure_password
-  has_many :items
   has_many :trips
+  has_many_and_belongs_to :items
   has_many :invites
   has_many :trips, :through => :invites
 end

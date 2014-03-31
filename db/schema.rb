@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330200823) do
+ActiveRecord::Schema.define(version: 20140331153544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,13 +30,18 @@ ActiveRecord::Schema.define(version: 20140330200823) do
   create_table "items", force: true do |t|
     t.string   "name"
     t.integer  "quantity"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "trip_id"
+    t.boolean  "is_claimed?", default: false
+    t.string   "description"
+    t.integer  "user_id"
   end
 
-  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
+  create_table "items_users", id: false, force: true do |t|
+    t.integer "item_id"
+    t.integer "user_id"
+  end
 
   create_table "trips", force: true do |t|
     t.string   "start"
