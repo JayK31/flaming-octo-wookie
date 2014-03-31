@@ -42,6 +42,7 @@ class ItemsController < ApplicationController
 
   #items/:id PUT
   def update
+    binding.pry
     item = Item.find(params[:id])
     item.update(item_params)
 
@@ -63,7 +64,7 @@ class ItemsController < ApplicationController
       :name,
       :quantity,
       :trip_id,
-      :is_claimed?,
+      :is_claimed,
       :description,
       :user_id
       )

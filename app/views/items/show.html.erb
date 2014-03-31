@@ -13,8 +13,8 @@
 <!-- update item to include user_id and claimed if user wants to bring item -->
 <% if @item.is_claimed? == false %>
   <%= form_for(@item, method: "put") do |f| %>
+    <%= f.hidden_field(:is_claimed, value: true ) %>
     <%= f.hidden_field(:user_id, value: @user.id) %>
-    <%= f.hidden_field(:is_claimed?, value: true ) %>
     <%= f.submit("Bring This Item!") %>
   <% end %>
 <% end %>
