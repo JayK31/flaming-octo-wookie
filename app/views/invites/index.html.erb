@@ -1,0 +1,10 @@
+<h1>Welcome Attendees</h1>
+
+<h2>Here's a list of people coming on the trip</h2>
+<% @invites.each do |invite| %>
+    <% if invite.trip_id == @trip.id %>
+      <p><%= invite.user.name %></p>
+  <% end %>
+<% end %>
+
+<a href="/">Home</a>

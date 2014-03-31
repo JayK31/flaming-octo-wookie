@@ -3,13 +3,11 @@ class TripsController < ApplicationController
   # "/trips"
   def index
     #define current user in order to display trips for that user only
-    # @trips = Trip.all
 
-    # @trips = Trip.find_by(user_id: params[:user_id])
     @trips = Trip.all
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
+    @invite = Invite.where(user_id: params[:id]).all
 
-    # @current_user ||= User.find(@user.id)
   end
 
   #"/trips" --> direct to form

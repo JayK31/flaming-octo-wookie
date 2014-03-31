@@ -6,19 +6,28 @@
 <p>Trip Start: <%= @trip.start %></p>
 <p>Trip Destination: <%= @trip.destination %></p>
 
-<a href="/trips/<%= @trip.id %>/add_new">Add Item to Trip Inventory</a><br/>
+<!-- re-routed items to be sure they only get added to selected trip -->
+<a href="/trips/<%= @trip.id %>/add_item">Add Item to Trip Inventory</a><br/>
 <a href="/trips/<%= @trip.id %>/items">View Trip Items</a><br/>
-<a href="/trips/<%= @trip.id %>/edit">Edit Trip</a><br/>
-<% if @trip.user_id = session[:user_id] %>
-    <a href="/invites/new">Invite Friends!</a>
+<a href="/trips/<%= @trip.id %>/invites">View Trip Attendees</a><br/>
+
+<!-- roundabout way to create a group leader
+      -if the trip was not created by the user (@trip.user_id), then do not display the
+          group leader options below -->
+<% if @trip.user_id == session[:user_id] %>
+  <a href="/trips/<%= @trip.id %>/edit">Edit Trip</a><br/>
+  <a href="/trips/<%= @trip.id %>/invites/new">Add User to Trip</a><br/>
+  <a href="/trips/<%= @trip.id %>/invites/new">Invite Friends!</a>
+  <%= form_for(@trip, method: "delete") do |f| %>
+    <%= f.submit("Delete This Trip") %>
+  <% end %>
 <% end %>
+
+
 
 
 
 <!-- use button to delete trip for now -->
-<%= form_for(@trip, method: "delete") do |f| %>
-  <%= f.submit("Delete This Trip") %>
-<% end %>
 
 <a href="/">Home</a>
 

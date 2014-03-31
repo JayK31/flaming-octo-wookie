@@ -9,10 +9,23 @@
       <p>Trip ID: <%= trip.id %></p>
       <p>Trip Name: <a href="/trips/<%= trip.id %>"><%= trip.start %></a> </p>
       <p>Trip Destination: <%= trip.destination %> </p>
-
    <% end %>
 <% end %>
 
+<!-- needs refactoring
+-idea is to find the invites that include the current user name, and find the trip that the current user is on
+-will redirect them to the trip, but will not have group leader priviledges
+-need to figure out how to get all invitations with the user_id (check trips_controller#index)
+ -->
+
+<!-- used find.where(args).all to collect all invites with matchinged user_id,
+  then iterated through each @invite object to find match
+  -ugly but it works -->
+<% @invite.each do |invite| %>
+  <% if invite.user_id == params[:id].to_i %>
+    <p>Trip ID: <%= invite.trip.id %></p>
+    <p>Trip Name: <a href="/trips/<%= invite.trip.id %>"><%= invite.trip.start %></a></p>
+    <p>Trip Destination: <%= invite.trip.destination %></p>
+  <% end %>
+<% end %>
 <a href="/">Home</a>
-
-
