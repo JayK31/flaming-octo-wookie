@@ -33,6 +33,8 @@ TripCollaboratorApp::Application.routes.draw do
   get "/trips/users/:id" => "trips#index"
   get "/trips/:id/invites/new" => "invites#new"
   get "/trips/:id/invites" => "invites#index"
+  get "/trips/:id/invites/:id" => "invites#show"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

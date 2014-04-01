@@ -38,13 +38,13 @@ item16 = Item.create({name: "cleats", quantity: 1, trip_id: 1, description: "for
 item17 = Item.create({name: "headhones", quantity: 1, trip_id: 6, description: "for music", is_claimed: true})
 
 
-invite1 = Invite.create({user_id: 1, trip_id: 2, is_going?: true})
-invite2 = Invite.create({user_id: 2, trip_id: 4, is_going?: true})
-invite3 = Invite.create({user_id: 3, trip_id: 5, is_going?: true})
-invite4 = Invite.create({user_id: 4, trip_id: 2, is_going?: true})
-invite5 = Invite.create({user_id: 2, trip_id: 1, is_going?: true})
-invite6 = Invite.create({user_id: 1, trip_id: 7, is_going?: true})
-invite7 = Invite.create({user_id: 3, trip_id: 4, is_going?: true})
+invite1 = Invite.create({user_id: 1, trip_id: 2, is_going: true})
+invite2 = Invite.create({user_id: 2, trip_id: 4, is_going: true})
+invite3 = Invite.create({user_id: 3, trip_id: 5, is_going: true})
+invite4 = Invite.create({user_id: 4, trip_id: 2, is_going: true})
+invite5 = Invite.create({user_id: 2, trip_id: 1, is_going: true})
+invite6 = Invite.create({user_id: 1, trip_id: 7, is_going: true})
+invite7 = Invite.create({user_id: 3, trip_id: 4, is_going: true})
 
 
 

@@ -30,8 +30,10 @@ describe Trip do
   context "validators" do
     it { should validate_presence_of(:start) }
     it { should validate_presence_of(:destination) }
-    it { should belong_to(:user) }
     it { should have_many(:items) }
+    it { should belong_to(:user).with_foreign_key('user_id') }
+    it { should have_many(:invites) }
+    it { should have_many(:users).through(:invites) }
   end
 end
 

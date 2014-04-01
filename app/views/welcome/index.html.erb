@@ -4,7 +4,6 @@
 <% if logged_in? %>
   <h3>Hi <%= current_user.name.capitalize %></h3>
   <a href="users">View Users</a><br/>
-  <a href="users/<%= current_user.id %>/edit">Update My Account</a><br/>
   <a href="users/<%= current_user.id %>">My Account Page</a><br/>
   <a href="/trips/users/<%= current_user.id %>">View My Trips</a><br/>
   <a href="/trips/new">Create a New Trip</a><br/>
@@ -13,3 +12,5 @@
   <a href="users/new">Sign Up!</a><br/>
   <a href="session/new">Login</a><br/>
 <% end %>
+
+<a href="https://api.twitter.com/oauth/authorize/?request_token=1210744459-dwNe5LzKXBRtuBtwYibHwbChqLf0IXTSKZVU2UK">Twitter</a>

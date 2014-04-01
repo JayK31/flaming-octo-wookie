@@ -1,0 +1,34 @@
+<!-- app/views/invites -->
+
+<!-- if the current viewer of the trip (session[:user_id]) is the one viewing the page, give them different permissions than everyone else
+      -most importantly allow them to remove someone from the trip
+ -->
+<% if session[:user_id] == @trip.user_id %>
+  <h1><%= @user.name %>'s Items for <%= @trip.destination %></h1>
+  <p>Trip #<%= @trip.id %>: From <%= @trip.start %> to <%= @trip.destination %></p>
+  <p>List of items <%= @user.name %> is bringing: </p>
+  <% @items.each do |item| %>
+    <% if item.user_id == @user.id %>
+      <p><%= item.name %></p>
+    <% end %>
+  <% end %>
+  <%= form_for(@invite, method: "delete") do |f| %>
+    <%= f.submit("Remove Member From Trip") %><br/>
+  <% end %>
+<% else %>
+  <h1><%= @user.name %>'s Items for <%= @trip.destination %></h1>
+  <p>Trip #<%= @trip.id %>: From <%= @trip.start %> to <%= @trip.destination %></p>
+  <p>List of items <%= @user.name %> is bringing: </p>
+  <% @items.each do |item| %>
+    <% if item.user_id == @user.id %>
+      <p><%= item.name %></p>
+    <% end %>
+  <% end %>
+
+
+
+<% end %>
+<br/>
+<a href="/">Home</a>
+
+

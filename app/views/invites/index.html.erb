@@ -1,9 +1,11 @@
-<h1>Welcome Attendees</h1>
+<!-- app/views/invites -->
+
+<h1>Trip from <%= @trip.start %> to <%= @trip.destination %></h1>
 
 <h2>Here's a list of people coming on the trip</h2>
 <% @invites.each do |invite| %>
-    <% if invite.trip_id == @trip.id %>
-      <p><%= invite.user.name %></p>
+  <% if invite.trip_id == @trip.id %>
+      <p><a href="/trips/<%= @trip.id %>/invites/<%= invite.id %>"><%= invite.user.name %></p>
   <% end %>
 <% end %>
 

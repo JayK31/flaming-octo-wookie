@@ -5,9 +5,10 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer
 #  trip_id    :integer
-#  is_going?  :boolean          default(TRUE)
+#  is_going   :boolean          default(TRUE)
 #  created_at :datetime
 #  updated_at :datetime
+#  email      :string(255)
 #
 
 class Invite < ActiveRecord::Base

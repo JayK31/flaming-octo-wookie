@@ -2,13 +2,15 @@
 #
 # Table name: items
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  quantity   :integer
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  trip_id    :integer
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  quantity    :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  trip_id     :integer
+#  is_claimed  :boolean          default(FALSE)
+#  description :string(255)
+#  user_id     :integer
 #
 
 require 'spec_helper'
@@ -30,8 +32,10 @@ describe Item do
   context "validators" do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:quantity) }
-    it { should belong_to(:user) }
+    it { should validate_presence_of(:description) }
     it { should belong_to(:trip) }
+    it { should have_many(:users) }
+    # it { should have_many(:users).through(:trips) }
   end
 end
 

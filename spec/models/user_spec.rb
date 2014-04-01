@@ -34,7 +34,9 @@ describe User do
     it { should validate_confirmation_of(:password) }
     it { should ensure_length_of(:password).is_at_least(8).is_at_most(16) }
     it { should have_many(:trips) }
-    it { should have_many(:items) }
+    it { should have_many(:trips).through(:invites) }
+    it { should have_many(:items).through(:trips) }
+    it { should have_many(:invites) }
   end
 
   #bug in shoulda matcher email validator

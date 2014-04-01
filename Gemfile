@@ -44,6 +44,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#use HTTParty
+  gem 'httparty'
+
 group :development, :test do
 # rspec for rails. set up with `rails g rpsec:install`
 # https://github.com/rspec/rspec-rails

@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
     @item[:trip_id] = params[:trip_id].first[0].to_i
 
     if @item.save
-      redirect_to("/trips/users/session[:user_id]")
+      redirect_to("/")
     else
       render :new
     end
@@ -42,7 +42,6 @@ class ItemsController < ApplicationController
 
   #items/:id PUT
   def update
-    binding.pry
     item = Item.find(params[:id])
     item.update(item_params)
 

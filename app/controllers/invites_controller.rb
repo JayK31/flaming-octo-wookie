@@ -3,7 +3,6 @@ class InvitesController < ApplicationController
   def index
     @trip = Trip.find(params[:id])
     @invites = Invite.all
-    @users = User.all
   end
 
   def new
@@ -12,9 +11,11 @@ class InvitesController < ApplicationController
   end
 
   def create
+    user = User.find_by(email: params[:invite][:email])
     @invite = Invite.new(
-      user_id: params[:invite][:user_id],
-      trip_id: params[:invite][:trip_id]
+      trip_id: params[:invite][:trip_id],
+      email: params[:invite][:email],
+      user_id: user.id
       )
 
     if @invite.save
@@ -22,6 +23,20 @@ class InvitesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @invite = Invite.find(params[:id])
+    @trip = Trip.find(@invite.trip_id)
+    @user = User.find(@invite.user_id)
+    @items = Item.all
+  end
+
+  def destroy
+    @invite = Invite.find(params[:id])
+    @invite.destroy
+
+    redirect_to("/")
   end
 
 end
