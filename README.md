@@ -11,5 +11,5 @@ and great
 [TripCollaborator](https://www.pivotaltracker.com/s/projects/1048054)
 
 #Check Out My App on Heroku!
-[TripCollaborator.Heroku.com](https:tripcollaborator.herokuapp.com)
+[TripCollaborator.Heroku.com](https://tripcollaborator.herokuapp.com)
 
