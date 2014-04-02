@@ -30,7 +30,7 @@ class InvitesController < ApplicationController
     @trip = Trip.find(@invite.trip_id)
     @user = User.find(@invite.user_id)
     @items = Item.all
-    if @user.id
+
   end
 
   def destroy
