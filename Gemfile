@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#verify ruby version to match heroku
+"ruby 2.1.0"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
@@ -63,3 +66,6 @@ group :development, :test do
 #generate diagrams based on models
   gem 'rails-erd'
 end
+
+#Enable static asset serving, logging on Heroku
+gem 'rails_12factor', group: :production
