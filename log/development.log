@@ -69157,3 +69157,212 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-02 01:16:22
 
 
 Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-02 01:16:22 -0400
+
+
+Started GET "/trips/5/items/13/tweets" for 127.0.0.1 at 2014-04-02 01:24:35 -0400
+Processing by TweetController#index as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT 1[0m  [["id", "13"]]
+  Rendered tweet/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 345ms (Views: 9.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-02 01:24:36 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-02 01:24:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-02 01:24:36 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-02 01:24:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-02 01:24:36 -0400
+
+
+Started GET "/trips/5/items/13/tweets" for 127.0.0.1 at 2014-04-02 01:27:23 -0400
+
+SyntaxError (/home/jay/dev/wdi/flaming-octo-wookie/app/helpers/application_helper.rb:39: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/tweet_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/jay/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/jay/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/jay/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/jay/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/trips/5/items/13/tweets" for 127.0.0.1 at 2014-04-02 01:27:31 -0400
+
+ActionController::RoutingError (uninitialized constant ApplicationHelper::Tweet):
+  app/helpers/application_helper.rb:36:in `<module:ApplicationHelper>'
+  app/helpers/application_helper.rb:1:in `<top (required)>'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/tweet_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/jay/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/jay/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.8ms)
+  Rendered /home/jay/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendered /home/jay/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (47.0ms)
+
+
+Started GET "/trips/5/items/13/tweets" for 127.0.0.1 at 2014-04-02 01:27:51 -0400
+Processing by TweetController#index as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mItem Load (0.7ms)[0m  SELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT 1  [["id", "13"]]
+  Rendered tweet/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 389ms (Views: 45.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-02 01:27:52 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-02 01:27:52 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-02 01:27:52 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-02 01:27:52 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-02 01:27:52 -0400
+
+
+Started GET "/trips/5/items/13/tweets" for 127.0.0.1 at 2014-04-02 01:29:43 -0400
+Processing by TweetController#index as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT 1[0m  [["id", "13"]]
+  Rendered tweet/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 632ms (Views: 40.5ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-02 01:29:44 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-02 01:29:44 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-02 01:29:44 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-02 01:29:44 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-02 01:29:44 -0400
+
+
+Started GET "/trips/5/items/13/tweets" for 127.0.0.1 at 2014-04-02 01:30:31 -0400
+Processing by TweetController#index as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mItem Load (1.6ms)[0m  SELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT 1  [["id", "13"]]
+  Rendered tweet/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 355ms (Views: 4.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-02 01:30:32 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-02 01:30:32 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-02 01:30:32 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-02 01:30:32 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-02 01:30:32 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-02 01:30:35 -0400
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (198.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered welcome/index.html.erb within layouts/application (230.4ms)
+Completed 200 OK in 239ms (Views: 35.4ms | ActiveRecord: 201.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-02 01:30:36 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-02 01:30:36 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-02 01:30:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-02 01:30:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-02 01:30:36 -0400
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-04-02 01:30:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-02 01:30:40 -0400
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered welcome/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/trips/new" for 127.0.0.1 at 2014-04-02 01:30:40 -0400
+Processing by TripsController#new as HTML
+  Rendered trips/_form.html.erb (173.9ms)
+  Rendered trips/new.html.erb within layouts/application (181.0ms)
+Completed 200 OK in 194ms (Views: 184.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-02 01:30:42 -0400
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered welcome/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/trips/users/1" for 127.0.0.1 at 2014-04-02 01:30:43 -0400
+Processing by TripsController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /home/jay/dev/wdi/flaming-octo-wookie/app/controllers/trips_controller.rb:9)
+  [1m[35mInvite Load (0.5ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."user_id" = 1
+  [1m[36mTrip Load (0.5ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+  [1m[35mTrip Load (0.6ms)[0m  SELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mTrip Load (0.4ms)[0m  [1mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered trips/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 24ms (Views: 8.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/trips/1" for 127.0.0.1 at 2014-04-02 01:30:44 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTrip Load (0.3ms)[0m  SELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered trips/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trips/1/invites" for 127.0.0.1 at 2014-04-02 01:30:45 -0400
+Processing by InvitesController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrip Load (0.4ms)[0m  [1mSELECT "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mInvite Load (42.3ms)[0m  SELECT "invites".* FROM "invites"
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered invites/index.html.erb within layouts/application (55.6ms)
+Completed 200 OK in 77ms (Views: 30.8ms | ActiveRecord: 44.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-02 01:30:47 -0400
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 1.2ms)

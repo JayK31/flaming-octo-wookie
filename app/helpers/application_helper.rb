@@ -1,5 +1,6 @@
 module ApplicationHelper
-  #methods here can be accessed anywhere in app
+  #methods here can be accessed anywhere in app, just include AppHelper
+
   #setting up session controller
   #assign current_user conditionally to current user using used_id
   def current_user
@@ -21,6 +22,9 @@ module ApplicationHelper
   # end
 
   def search(item)
+  #TODO: tried to use ENV variable below, receiving bad authentication error
+  # Bearer #{ENV['TWIT']}
+
     result = HTTParty.get("https://api.twitter.com/1.1/search/tweets.json",
       :query => { 'q' => item },
       :headers => {
