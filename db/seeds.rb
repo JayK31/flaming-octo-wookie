@@ -35,7 +35,6 @@ item13 = Item.create({name: "glove", quantity: 1, trip_id: 5, description: "base
 item14 = Item.create({name: "bat", quantity: 1, trip_id: 6, description: "baseball is fun"})
 item15 = Item.create({name: "uniform", quantity: 2, trip_id: 7, description: "for lookin' good"})
 item16 = Item.create({name: "cleats", quantity: 1, trip_id: 1, description: "for curb stomping"})
-item17 = Item.create({name: "headhones", quantity: 1, trip_id: 6, description: "for music", is_claimed: true})
 
 
 invite1 = Invite.create({user_id: 1, trip_id: 2, is_going: true})

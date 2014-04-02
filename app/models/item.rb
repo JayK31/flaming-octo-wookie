@@ -21,11 +21,8 @@ class Item < ActiveRecord::Base
   has_many :users
   has_many :users, :through => :trips
 
-
+  #method on item that searches for tweets using the item name (self.name)
   def search
-  #TODO: tried to use ENV variable below, receiving bad authentication error
-  # Bearer #{ENV['TWIT']}
-    binding.pry
     result = HTTParty.get("https://api.twitter.com/1.1/search/tweets.json",
       :query => { 'q' => self.name },
       :headers => {
