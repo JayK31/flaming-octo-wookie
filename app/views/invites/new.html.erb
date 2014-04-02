@@ -1,4 +1,10 @@
 <h1>Invitation Page</h1>
-
+<% @invite.errors.messages.each do |attr, message| %>
+  <p>WOMP! It looks like your <%= attr %> <%= message.join %>. Fix it, bro!</p>
+<% end %>
 <p>Type in a user's email to invite them to the trip list. We'll deal with non-existant users later.</p>
 <%= render 'form' %>
+
+
+
+<!-- if a user is already attending a trip, notify the trip leader -->

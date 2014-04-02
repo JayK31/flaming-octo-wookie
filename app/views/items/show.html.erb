@@ -1,17 +1,17 @@
 <!-- app/views/items -->
-<p><a href="/">Home</a></p>
-<p><a href="/trips/users/<%= @user.id %>">My Trips</a></p>
+<a href="/">Home</a><br/>
+<a href="/trips/users/<%= @user.id %>">Back to My Trips</a>
 
 <h1>Hi <%= @user.name %></h1>
 
-<p>Name: <%= @item.name %></p>
-<p>Quantity: <%= @item.quantity %></p>
+<p>Item: <%= @item.name.capitalize %></p>
 <p>For Trip: <%= @trip.destination %></p>
 
 <p><a href="/trips/<%= @item.trip_id %>/items/<%= @item.id %>/edit">Edit Item</a></p>
 
 <!-- update item to include user_id and claimed if user wants to bring item -->
 <% if @item.is_claimed == false %>
+  <p>Click the button below to 'claim' this item. Once you commit to bringing the item, it's on you to not be that guy or girl who forgets it</p>
   <%= form_for(@item, method: "put") do |f| %>
     <%= f.hidden_field(:is_claimed, value: true ) %>
     <%= f.hidden_field(:user_id, value: @user.id) %>
@@ -23,11 +23,12 @@
 
 <!-- use button to delete trip for now -->
 <!-- only allow trip creators to delete trip -->
+<p>Don't need this item anymore? Delete it!</p>
 <% if @trip.user_id == session[:user_id] %>
   <%= form_for(@item, method: "delete") do |f| %>
     <%= f.submit("Delete This Item") %>
   <% end %>
 <% end %>
 
-<p><a href="/trips/<%= @trip.id %>/items/<%= @item.id %>/tweets">Find Item On Twitter</p>
+<p><a href="/trips/<%= @trip.id %>/items/<%= @item.id %>/tweets"><%= image_tag("twitter.png", size: "150x150", alt: "Edit Entry") %></a></p>
 
