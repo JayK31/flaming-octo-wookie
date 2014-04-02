@@ -1,16 +1,14 @@
 <!-- app/views/users -->
 
-<a href="/">Home</a>
-<h1>Sign Up for Trip Collab!</h1>
+<h1>Sign Up for Trip Collab</h1>
+<p><strong>By signing up, you'll have access to tons of features, most of which have not been developed yet. But they will.</strong></p>
 
-<p>Hello!</p>
-
-<h1>Users#New</h1>
 <!-- @user is in both the new and create actions
 when we render it under `new` there are no errrors
 but if we render it under `create` there will be errors -->
 <% @user.errors.messages.each do |attr, message| %>
-  <p>error on <%= attr %><%= message %></p>
+  <p>WOMP! It looks like your <%= attr %> <%= message.join %>. Fix it, bro!</p>
 <% end %>
 
 <%= render 'form' %>
+<a href="/">Home</a>
