@@ -3,11 +3,14 @@
 <h1>Items for <%= @trip.destination %></h1>
 <% @items.each do |item| %>
     <% if @trip.id == item.trip_id %>
-      <p>Trip ID: <%= item.trip_id %></p>
-      <p>Item Name: <a href="items/<%= item.id %>"><%= item.name %></a></p>
-      <p>Quantity: <%= item.quantity %></p>
+      <p>Item: <a href="items/<%= item.id %>"><%= item.name.capitalize %></a></p>
       <p>Description: <%= item.description %></p>
-      <p>Is someone bringing this item? <%= item.is_claimed? %></p>
+      <p>Is someone bringing this item?</p>
+      <% if item.is_claimed? %>
+        <p><strong>Yes, someone is bringing this item.</strong></p>
+      <% else %>
+        <p><strong>Nope, click on the item name to bring the item!</strong></p>
+      <% end %>
 
     <% end %>
 <% end %>

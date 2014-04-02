@@ -3,12 +3,10 @@
 <h1>My Upcoming Trips</h1>
 
 <!-- Matching the current_user id with the trip user id in order to show the current user's trips -->
-<p>Here are all of my trips: </p>
+
 <% @trips.each do |trip| %>
   <% if session[:user_id] == trip.user_id %>
-      <p>Trip ID: <%= trip.id %></p>
-      <p>Trip Name: <a href="/trips/<%= trip.id %>"><%= trip.start %></a> </p>
-      <p>Trip Destination: <%= trip.destination %> </p>
+      <p><a href="/trips/<%= trip.id %>"><%= trip.start %> to <%= trip.destination %></a><strong> (*Group Leader)</strong> </p>
    <% end %>
 <% end %>
 
@@ -23,9 +21,7 @@
   -ugly but it works -->
 <% @invite.each do |invite| %>
   <% if invite.user_id == params[:id].to_i %>
-    <p>Trip ID: <%= invite.trip.id %></p>
-    <p>Trip Name: <a href="/trips/<%= invite.trip.id %>"><%= invite.trip.start %></a></p>
-    <p>Trip Destination: <%= invite.trip.destination %></p>
+    <p><a href="/trips/<%= invite.trip.id %>"><%= invite.trip.start %> to <%= invite.trip.destination %></a></p>
   <% end %>
 <% end %>
-<a href="/">Home</a>
+<a href="/"><button>Home</button></a>
