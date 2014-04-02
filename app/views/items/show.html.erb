@@ -11,12 +11,14 @@
 <p><a href="/trips/<%= @item.trip_id %>/items/<%= @item.id %>/edit">Edit Item</a></p>
 
 <!-- update item to include user_id and claimed if user wants to bring item -->
-<% if @item.is_claimed? == false %>
+<% if @item.is_claimed == false %>
   <%= form_for(@item, method: "put") do |f| %>
     <%= f.hidden_field(:is_claimed, value: true ) %>
     <%= f.hidden_field(:user_id, value: @user.id) %>
     <%= f.submit("Bring This Item!") %>
   <% end %>
+<% else %>
+  <p><%= @item.user_id %> is bringing this item, <%= @item.name %></p>
 <% end %>
 
 <!-- use button to delete trip for now -->
@@ -27,4 +29,5 @@
   <% end %>
 <% end %>
 
+<p><a href="/trips/<%= @trip.id %>/items/<%= @item.id %>/tweets">Find Item On Twitter</p>
 

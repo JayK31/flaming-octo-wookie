@@ -10,4 +10,6 @@ and great
 #Keep Tabs on My Progress with Pivotal Tracker
 [TripCollaborator](https://www.pivotaltracker.com/s/projects/1048054)
 
+#Check Out My App on Heroku!
+[TripCollaborator.Heroku.com](https:tripcollaborator.herokuapp.com)
 

@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
 
   #moved methods to AppHelper module
 
+  #TODO: tried to use ENV variable below, receiving bad authentication error
+  # Bearer #{ENV['TWIT']}
+
   # def current_trip
   #   @current_trip ||= Trip.find_by(id: session[:trip_id])
   # end
