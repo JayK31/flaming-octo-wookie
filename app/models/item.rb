@@ -18,7 +18,6 @@ class Item < ActiveRecord::Base
   validates :quantity, presence: true
   validates :description, presence: true
   belongs_to :trip
-  has_many :users
   has_many :users, :through => :trips
 
   #method on item that searches for tweets using the item name (self.name)
