@@ -4,13 +4,13 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @current_user = User.find(session[:user_id])
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
   end
 
   # items/new --> form
   def new
     @item = Item.new
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
   end
 
   #items POST

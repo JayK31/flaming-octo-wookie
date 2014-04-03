@@ -3626,3 +3626,127 @@ Migrating to AddEmailToInvitesAgain (20140331195227)
   [1m[35m (0.7ms)[0m  ROLLBACK
   [1m[36m (0.6ms)[0m  [1mBEGIN[0m
   [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (40.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (111.9ms)[0m  INSERT INTO "trips" ("created_at", "destination", "start", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Thu, 03 Apr 2014 20:10:21 UTC +00:00], ["destination", "London"], ["start", "China"], ["updated_at", Thu, 03 Apr 2014 20:10:21 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "trips" ("created_at", "destination", "start", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Thu, 03 Apr 2014 20:10:22 UTC +00:00], ["destination", "London"], ["start", "China"], ["updated_at", Thu, 03 Apr 2014 20:10:22 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "invites" ("created_at", "email", "trip_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00], ["email", "jay@jay.com"], ["trip_id", 1], ["updated_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "invites" ("created_at", "email", "trip_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00], ["email", "jay@jay.com"], ["trip_id", 1], ["updated_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (18.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'alec@alec.com' LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00], ["email", "alec@alec.com"], ["name", "Alec"], ["password_digest", "$2a$04$XvMEGBq4qBAYbyQtB0eA/eVZbPck6HbKsufrE0nz.YBNzbzlaRcAi"], ["updated_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'alec@alec.com' LIMIT 1
+  [1m[36mUser Exists (1.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'alec@alec.com' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = '@' LIMIT 1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = '@' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'alec@alec.com' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00], ["email", "alec@alec.com"], ["name", "Alec"], ["password_digest", "$2a$04$NrSI2fMcKOAoXQi5wrrPcuaQP2DqlSVKvZ6z0kUhoO1zEIwnLqzC2"], ["updated_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'alec@alec.com' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00], ["email", "alec@alec.com"], ["name", "Alec"], ["password_digest", "$2a$04$p3LvPJtjzq/rIG1BHmGmh.oBUq7bl3mWq829hJ4s.roW6QJPLSj.W"], ["updated_at", Thu, 03 Apr 2014 20:10:23 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK

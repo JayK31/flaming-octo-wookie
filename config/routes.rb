@@ -6,23 +6,23 @@ TripCollaboratorApp::Application.routes.draw do
   root 'welcome#index'
 
   resources :users
-  resources :trips
-  resources :items
   resources :invites
+  resources :items
+  resources :trips do
+    resources :items
+  end
 
-  # resources :trips do
-  #   resources :invites
-  # end
+
 
 # just the three routes we need for sessions
   get  "/session/new"  => "session#new"
   post "/session"      => "session#create"
   get  "/logout"       => "session#destroy"
 
-  get "/trips/:id/add_item" => "items#new"
-  get "/trips/:id/items" => "items#index"
-  get "/trips/:id/items/:id/edit" => "items#edit"
-  get "/trips/:id/items/:id" => "items#show"
+  # get "/trips/:id/add_item" => "items#new"
+  # get "/trips/:id/items" => "items#index"
+  # get "/trips/:id/items/:id/edit" => "items#edit"
+  # get "/trips/:id/items/:id" => "items#show"
   get "/trips/users/:id" => "trips#index"
   get "/trips/:id/invites/new" => "invites#new"
   get "/trips/:id/invites" => "invites#index"
