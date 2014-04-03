@@ -8,7 +8,6 @@ TripCollaboratorApp::Application.routes.draw do
   resources :users
   resources :trips
   resources :items
-  resources :lists
   resources :invites
 
   # resources :trips do
