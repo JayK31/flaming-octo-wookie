@@ -25,7 +25,7 @@
 <!-- only allow trip creators to delete trip -->
 <p>Don't need this item anymore? Delete it!</p>
 <% if @trip.user_id == session[:user_id] %>
-  <%= form_for(@item, method: "delete") do |f| %>
+  <%= form_for(@item.trip, method: "delete") do |f| %>
     <%= f.submit("Delete This Item") %>
   <% end %>
 <% end %>

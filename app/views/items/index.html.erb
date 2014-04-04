@@ -3,7 +3,7 @@
 <h1>Items for <%= @trip.destination %></h1>
 <% @items.each do |item| %>
     <% if @trip.id == item.trip_id %>
-      <p>Item: <a href="items/<%= item.id %>"><%= item.name.capitalize %></a></p>
+      <p>Item: <a href="/trips/<%= @trip.id %>/items/<%= item.id %>"><%= item.name.capitalize %></a></p>
       <p>Description: <%= item.description %></p>
       <p>Is someone bringing this item?</p>
       <% if item.is_claimed? %>

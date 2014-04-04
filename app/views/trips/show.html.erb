@@ -6,7 +6,7 @@
 <p><strong>Trip Details:</strong> <%= @trip.start %> to <%= @trip.destination %></p>
 
 <!-- re-routed items to be sure they only get added to selected trip -->
-<a href="/trips/<%= @trip.id %>/items/new">Add Item to Trip Inventory</a><br/>
+<a href="/trips/<%= @trip.id %>/add_item">Add Item to Trip Inventory</a><br/>
 <a href="/trips/<%= @trip.id %>/items">View Trip Items</a><br/>
 <a href="/trips/<%= @trip.id %>/invites">View Trip Attendees</a><br/>
 
