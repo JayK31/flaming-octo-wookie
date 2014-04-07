@@ -12,7 +12,7 @@
 <!-- update item to include user_id and claimed if user wants to bring item -->
 <% if @item.is_claimed == false %>
   <p>Click the button below to 'claim' this item. Once you commit to bringing the item, it's on you to not be that guy or girl who forgets it</p>
-  <%= form_for(@item, method: "put") do |f| %>
+  <%= form_for([@trip, @item], method: "put") do |f| %>
     <%= f.hidden_field(:is_claimed, value: true ) %>
     <%= f.hidden_field(:user_id, value: @user.id) %>
     <%= f.submit("Bring This Item!") %>
@@ -23,9 +23,9 @@
 
 <!-- use button to delete trip for now -->
 <!-- only allow trip creators to delete trip -->
-<p>Don't need this item anymore? Delete it!</p>
 <% if @trip.user_id == session[:user_id] %>
-  <%= form_for(@item.trip, method: "delete") do |f| %>
+<p>Don't need this item anymore? Delete it!</p>
+  <%= form_for([@trip, @item], method: "delete") do |f| %>
     <%= f.submit("Delete This Item") %>
   <% end %>
 <% end %>

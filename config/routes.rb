@@ -7,11 +7,9 @@ TripCollaboratorApp::Application.routes.draw do
 
   resources :users
   resources :invites
-  resources :items
-  resources :trips
-  # resources :trips do
-  #   resources :items
-  # end
+  resources :trips do
+    resources :items
+  end
 
 
 
@@ -20,10 +18,6 @@ TripCollaboratorApp::Application.routes.draw do
   post "/session"      => "session#create"
   get  "/logout"       => "session#destroy"
 
-  get "/trips/:id/add_item" => "items#new"
-  get "/trips/:id/items" => "items#index"
-  get "/trips/:id/items/:id/edit" => "items#edit"
-  get "/trips/:id/items/:id" => "items#show"
   get "/trips/users/:id" => "trips#index"
   get "/trips/:id/invites/new" => "invites#new"
   get "/trips/:id/invites" => "invites#index"

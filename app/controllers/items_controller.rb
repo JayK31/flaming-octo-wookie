@@ -4,13 +4,13 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @current_user = User.find(session[:user_id])
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
   end
 
   # trips/:/id/items/new --> form
   def new
-    @item = Item.new
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @item = Item.new(:trip=>@trip)
   end
 
   #trips/:id/items POST
@@ -52,6 +52,7 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
+    
 
     redirect_to("/trips")
   end
