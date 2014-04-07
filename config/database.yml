@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: trip_collaborator_app_development
   pool: 5
-  username: jay
+  username: JayK
   password:
   host: localhost
 
@@ -50,7 +50,7 @@ test:
   encoding: unicode
   database: trip_collaborator_app_test
   pool: 5
-  username: jay
+  username: JayK
   password:
   host: localhost
 
@@ -59,6 +59,6 @@ production:
   encoding: unicode
   database: trip_collaborator_app_production
   pool: 5
-  username: jay
+  username: JayK
   password:
   host: localhost
