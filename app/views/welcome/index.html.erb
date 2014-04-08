@@ -3,12 +3,14 @@
 
 <% if logged_in? %>
   <h3>Hi <%= current_user.name.capitalize %></h3>
-  <a href="users/<%= current_user.id %>">My Account Page</a><br/>
-  <a href="/trips/users/<%= current_user.id %>">View My Trips</a><br/>
-  <a href="/trips/new">Create a New Trip</a><br/>
-  <a href="/logout">Logout</a>
+
+  <!-- using link_to instead of a href -->
+  <%= link_to "My Account Page" , user_path(current_user), class: "welcome_links" %><br/>
+  <%= link_to "View My Trips" , trips_users_path(current_user), class: "welcome_links" %><br/>
+  <%= link_to "Create A New Trip", new_trip_path, class: "welcome_links" %><br/>
+  <%= link_to "Logout", logout_path, class: "welcome_links" %><br/>
 <% else %>
-  <a href="users/new">Sign Up!</a><br/>
-  <a href="session/new">Login</a><br/>
+  <%= link_to "Create Account", new_user_path, class: "welcome_links" %><br/>
+  <%= link_to "Login", session_new_path, class: "welcome_links" %><br/>
 <% end %>
 

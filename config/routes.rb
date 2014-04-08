@@ -18,7 +18,9 @@ TripCollaboratorApp::Application.routes.draw do
   post "/session"      => "session#create"
   get  "/logout"       => "session#destroy"
 
-  get "/trips/users/:id" => "trips#index"
+# created custom route, added prefix to it so I can create link_to for it
+  get "/trips/users/:id" => "trips#index", as: :trips_users
+
   get "/trips/:id/invites/new" => "invites#new"
   get "/trips/:id/invites" => "invites#index"
   get "/trips/:id/invites/:id" => "invites#show"
