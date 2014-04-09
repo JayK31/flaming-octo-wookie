@@ -50,7 +50,8 @@ class TripsController < ApplicationController
   def destroy
     trip = Trip.find(params[:id])
     trip.destroy
-    redirect_to("/trips")
+    flash[:destroy_trip] = "Trip successfully destroyed!"
+    redirect_to trips_path
   end
 
 #create private method user_params to clean up create method(FMSC)

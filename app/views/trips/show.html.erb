@@ -1,34 +1,26 @@
 <!-- app/views/trips -->
-<a href="/">Home</a>
+<%= link_to('Home', root_path) %>
 
 <h1>Going to <%= @trip.destination %></h1>
 
-<p><strong>Trip Details:</strong> <%= @trip.start %> to <%= @trip.destination %></p>
+<strong>Trip Details:</strong> <%= @trip.start %> to <%= @trip.destination %><br/>
 
 <!-- re-routed items to be sure they only get added to selected trip -->
-<a href="/trips/<%= @trip.id %>/items/new">Add Item to Trip Inventory</a><br>
-<!-- above, original route was a href="trips/<%= @trip.id %>/add_item" -->
-
-<a href="/trips/<%= @trip.id %>/items">View Trip Items</a><br/>
-<a href="/trips/<%= @trip.id %>/invites">View Trip Attendees</a><br/>
+<%= link_to('Add Item to Trip', new_trip_item_path(@trip, @item)) %><br/>
+<%= link_to('View Trip Items', trip_items_path(@trip, @item)) %><br/>
+<%= link_to("Who's Going?", trip_invites_path(@trip, @invite)) %><br/>
 
 <!-- roundabout way to create a group leader
       -if the trip was not created by the user (@trip.user_id), then do not display the
           group leader options below -->
+<br/>
 <% if @trip.user_id == session[:user_id] %>
-  <p><strong>Group Leader Options</strong></p>
-  <a href="/trips/<%= @trip.id %>/edit">Edit Trip</a><br/>
-  <a href="/trips/<%= @trip.id %>/invites/new">Add User to Trip</a><br/>
-  <a href="/trips/<%= @trip.id %>/invites/new">Invite Friends!</a>
-  <%= form_for(@trip, method: "delete") do |f| %>
-    <%= f.submit("Delete This Trip") %>
-  <% end %>
+  <strong>Group Leader Options</strong><br/>
+  <%= link_to('Edit Trip', edit_trip_path(@trip)) %><br/>
+  <%= link_to('Invite/Add User to Trip', new_trip_invite_path(@trip, @invite)) %><br/>
+
+  <%= button_to("Delete Trip", trip_path(@trip), method: :delete) %>
 <% end %>
 
-
-
-
-
-<!-- use button to delete trip for now -->
 
 

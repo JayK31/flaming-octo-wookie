@@ -1,11 +1,11 @@
+<!-- app/views/users -->
+<%= link_to('Home', root_path) %>
+
 <h1>Hello <%= @user.name.capitalize %></h1>
 
-<a href="/users/<%= @user.id %>/edit">Update  My Account</a><br/>
-<a href="/trips/users/<%= @user.id %>">View My Trips</a><br/>
-<a href="/trips/new">Create a New Trip</a><br/>
-<a href="/logout">Logout</a><br/>
-<a href="/">Home</a>
+<%= link_to('Update My Account Info', edit_user_path(@user)) %><br/>
+<%= link_to('View My Trips', trips_users_path(@user)) %><br/>
+<%= link_to('Create New Trip', new_trip_path(@trip)) %><br/>
+<%= link_to('Delete My Account', user_path(@user), method: :delete) %><br/>
+<%= link_to('Logout', logout_path) %><br/>
 
-<%= form_for(@user, method: "delete") do |f| %>
-  <%= f.submit("Delete My Account") %>
-<% end %>

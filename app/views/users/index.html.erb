@@ -1,9 +1,12 @@
+<!-- app/views/users -->
+<!-- NOTE: as of now this page is not being used. keeping it for now, but more likely than not will be removing from app completely, as it does not serve any real purpose (do not want users to view a directory of other users) -->
+
 <h1>Welcome to TripCollaborator </h1>
 
 <% @users.each do |user| %>
   <ul>
     <li>User ID: <%= user.id %></li>
-    <li>Name: <a href="/users/<%= user.id %>"><%= user.name.capitalize %></a></li>
+    <li>Name: <%= link_to(user.name.capitalize, user_path(user)) %></li>  
     <li>Email: <%= user.email %></li>
   </ul>
 <% end %>

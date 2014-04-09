@@ -1,6 +1,6 @@
 <!-- app/views/items -->
-<a href="/trips/<%= @trip.id %>">Back to Trip</a><br/>
-<a href="/">Home</a>
+<%= link_to('Back to Trip', trip_path(@trip)) %><br/>
+<%= link_to('Home', root_path) %>
 
 <h1>Add an Item </h1>
 <%= render 'form' %>

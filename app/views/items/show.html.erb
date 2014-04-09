@@ -1,13 +1,14 @@
 <!-- app/views/items -->
-<a href="/">Home</a><br/>
-<a href="/trips/users/<%= @user.id %>">Back to My Trips</a>
+
+<%= link_to('Home', root_path) %><br/>
+<%= link_to('My Trips', trips_users_path(@user)) %>
 
 <h1>Hi <%= @user.name %></h1>
 
 <p>Item: <%= @item.name.capitalize %></p>
 <p>For Trip: <%= @trip.destination %></p>
 
-<p><a href="/trips/<%= @item.trip_id %>/items/<%= @item.id %>/edit">Edit Item</a></p>
+<p><%= link_to('Edit Item', edit_trip_item_path(@item.trip, @item)) %></p>
 
 <!-- update item to include user_id and claimed if user wants to bring item -->
 <% if @item.is_claimed == false %>
@@ -24,10 +25,9 @@
 <!-- use button to delete trip for now -->
 <!-- only allow trip creators to delete trip -->
 <% if @trip.user_id == session[:user_id] %>
-<p>Don't need this item anymore? Delete it!</p>
-  <%= form_for([@trip, @item], method: "delete") do |f| %>
-    <%= f.submit("Delete This Item") %>
-  <% end %>
+
+  <%= button_to("Delete This Item", trip_item_path(@item.trip, @item), method: :delete) %>
+ 
 <% end %>
 
 <p><a href="/trips/<%= @trip.id %>/items/<%= @item.id %>/tweets"><%= image_tag("twitter.png", size: "150x150", alt: "Find Tweets ") %></a></p>

@@ -1,12 +1,14 @@
 <!-- app/views/trips -->
+<%= link_to('Home', root_path) %>
+
 
 <h1>My Upcoming Trips</h1>
 
 <!-- Matching the current_user id with the trip user id in order to show the current user's trips -->
 
 <% @trips.each do |trip| %>
-  <% if session[:user_id] == trip.user_id %>
-      <p><a href="/trips/<%= trip.id %>"><%= trip.start %> to <%= trip.destination %></a><strong> (*Group Leader)</strong> </p>
+  <% if session[:user_id] == trip.user_id %>      
+      <%= link_to(trip.start + ' to ' + trip.destination, trip_path(trip)) %><strong> (*Group Leader)</strong><br/>
    <% end %>
 <% end %>
 <!-- needs refactoring
@@ -20,9 +22,9 @@
   -ugly but it works -->
 <% @invite.each do |invite| %>
   <% if invite.user_id == params[:id].to_i %>
-    <p><a href="/trips/<%= invite.trip.id %>"><%= invite.trip.start %> to <%= invite.trip.destination %></a></p>
+    <%= link_to(invite.trip.start + ' to ' + invite.trip.destination, trip_invites_path(invite, @trip)) %><br/>
   <% end %>
 <% end %>
-<a href="/"><button>Home</button></a>
+
 
 

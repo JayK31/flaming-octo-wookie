@@ -5,8 +5,8 @@
 <h2>Here's a list of people coming on the trip</h2>
 <% @invites.each do |invite| %>
   <% if invite.trip_id == @trip.id %>
-      <p><a href="/trips/<%= @trip.id %>/invites/<%= invite.id %>"><%= invite.user.name %></p>
+      <p><%= link_to(invite.user.name, trip_invite_path(@trip, invite)) %></p>
   <% end %>
 <% end %>
 
-<a href="/">Home</a>
+<%= link_to('Home', root_path) %>

@@ -15,6 +15,10 @@
         <div class="error"><%= flash[:error] %></div>
       <% elsif flash[:notice] %>
         <div class="notice"><strong><%= flash[:notice] %></strong></div>
+      <% elsif flash[:destroy_trip] %>
+        <div class="destroy_trip"><strong><%= flash[:destroy_trip] %></strong></div>
+      <% elsif flash[:destroy_user] %>
+        <div class="destroy_user"><strong><%= flash[:destroy_user] %></strong></div>
       <% end %>
  
       <%= yield %>

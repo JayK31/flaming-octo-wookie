@@ -19,24 +19,13 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         #tell usermailer to send welcome email
         UserMailer.welcome_email(@user).deliver
-        format.html { redirect_to(@user, notice: 'User was successfully created.') }
+        format.html { redirect_to(@user, notice: "Congratulations, you've successfully signed up!.") }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-
-    # if @user.save
-    #   session[:user_id] = @user.id
-
-    #   flash[:notice] = "Congratulations, you've successfully signed up!"
-    #   redirect_to("/")
-
-    # else
-    #   flash[:error] = "Something went horribly wrong. Check the errors below!"
-    #   render :new
-    # end
   end
 
   #users/:id/
@@ -66,7 +55,8 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     user.destroy
-  redirect_to("/")
+    flash[:destroy_user] = "Account successfully deleted."
+    redirect_to root_path
   end
 
   #create private method user_params to clean up create method(FMSC)

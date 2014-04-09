@@ -1,9 +1,9 @@
 <!-- app/views/items -->
-<a href="/">Home</a><br/>
+<%= link_to('Home', root_path) %>
 <h1>Items for <%= @trip.destination %></h1>
 <% @items.each do |item| %>
     <% if @trip.id == item.trip_id %>
-      <p>Item: <a href="/trips/<%= @trip.id %>/items/<%= item.id %>"><%= item.name.capitalize %></a></p>
+      <p>Item: <%= link_to(item.name.capitalize, trip_item_path(@trip, item)) %></p>
       <p>Description: <%= item.description %></p>
       <p>Is someone bringing this item?</p>
       <% if item.is_claimed? %>
@@ -15,5 +15,5 @@
     <% end %>
 <% end %>
 
-<a href="/">Home</a><br/>
+<%= link_to('Home', root_path) %>
 
