@@ -1,12 +1,12 @@
 class InvitesController < ApplicationController
 
   def index
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
     @invites = Invite.all
   end
 
   def new
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
     @invite = Invite.new
   end
 
@@ -27,15 +27,15 @@ class InvitesController < ApplicationController
 
   def show
     @invite = Invite.find(params[:id])
-    @trip = Trip.find(@invite.trip_id)
+    @trip = Trip.find(params[:trip_id])
     @user = User.find(@invite.user_id)
     @items = Item.all
 
   end
 
   def destroy
-    @invite = Invite.find(params[:id])
-    @invite.destroy
+    invite = Invite.find(params[:id])
+    invite.destroy
 
     redirect_to("/")
   end

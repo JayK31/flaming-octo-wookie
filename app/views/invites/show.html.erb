@@ -12,9 +12,9 @@
       <p><%= item.name %></p>
     <% end %>
   <% end %>
-  <%= form_for(@invite, method: "delete") do |f| %>
-    <%= f.submit("Remove Member From Trip") %><br/>
-  <% end %>
+
+  <%= button_to("Destroy", trip_invite_path(@invite.trip, @invite), method: :delete) %> 
+
 <% else %>
   <h1><%= @user.name %>'s Items for <%= @trip.destination %></h1>
   <p>Trip #<%= @trip.id %>: From <%= @trip.start %> to <%= @trip.destination %></p>
@@ -25,10 +25,6 @@
     <% end %>
   <% end %>
 
-
-
 <% end %>
 <br/>
 <a href="/">Home</a>
-
-
