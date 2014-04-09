@@ -1,4 +1,5 @@
 <!-- app/views/invites -->
+<%= link_to('Home', root_path) %>
 
 <h1>Trip from <%= @trip.start %> to <%= @trip.destination %></h1>
 
@@ -8,5 +9,3 @@
       <p><%= link_to(invite.user.name, trip_invite_path(@trip, invite)) %></p>
   <% end %>
 <% end %>
-
-<%= link_to('Home', root_path) %>
