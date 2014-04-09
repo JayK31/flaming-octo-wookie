@@ -1,5 +1,6 @@
 <!-- app/views/items -->
 <%= link_to('Home', root_path) %>
+
 <h1>Items for <%= @trip.destination %></h1>
 <% @items.each do |item| %>
     <% if @trip.id == item.trip_id %>
@@ -14,6 +15,4 @@
 
     <% end %>
 <% end %>
-
-<%= link_to('Home', root_path) %>
 

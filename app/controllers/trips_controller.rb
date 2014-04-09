@@ -3,11 +3,9 @@ class TripsController < ApplicationController
   # "/trips"
   def index
     #define current user in order to display trips for that user only
-
     @trips = Trip.all
     @user = User.find(session[:user_id])
     @invite = Invite.where(user_id: params[:id]).all
-
   end
 
   #"/trips" --> direct to form
@@ -22,8 +20,10 @@ class TripsController < ApplicationController
     @trip[:user_id] = session[:user_id]
 
     if @trip.save
-      redirect_to("/")
+      flash[:create_trip] = "Trip successfully created!"
+      redirect_to trip_path(@trip)
     else
+      flash[:error] = "Sorry, something went wrong. See the errors below and try again!"
       render :new
     end
   end
@@ -42,8 +42,7 @@ class TripsController < ApplicationController
   def update
     trip = Trip.find(params[:id])
     trip.update(trip_params)
-
-    redirect_to("/trips")
+    redirect_to trip_path(trip)
   end
 
   #/trips/:id DELETE

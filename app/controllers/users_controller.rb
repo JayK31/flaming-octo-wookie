@@ -47,8 +47,7 @@ class UsersController < ApplicationController
       name: params[:user][:name],
       email: params[:user][:email]
       )
-
-    redirect_to(user_path(user))
+    redirect_to user_path(user)
   end
 
   #users/:id DELETE

@@ -19,6 +19,8 @@
         <div class="destroy_trip"><strong><%= flash[:destroy_trip] %></strong></div>
       <% elsif flash[:destroy_user] %>
         <div class="destroy_user"><strong><%= flash[:destroy_user] %></strong></div>
+      <% elsif flash[:create_trip] %>
+        <div class="create_trip"><strong><%= flash[:create_trip] %></strong></div>
       <% end %>
  
       <%= yield %>

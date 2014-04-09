@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
     @item[:trip_id] = params[:trip_id].first[0].to_i
 
     if @item.save
-      redirect_to("/")
+      redirect_to trip_item_path(@item.trip, @item)
     else
       render :new
     end
@@ -45,16 +45,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
 
-    redirect_to("/")
+    redirect_to trip_item_path(@item.trip, @item)
   end
 
   #trips/:id/items/:id DELETE
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    
-
-    redirect_to("/trips")
+    redirect_to trip_items_path
   end
 
   #create private method user_params to clean up create method(FMSC)

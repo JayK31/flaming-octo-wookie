@@ -19,7 +19,7 @@ class InvitesController < ApplicationController
       )
 
     if @invite.save
-      redirect_to("/")
+      redirect_to trip_invite_path(@invite.trip, @invite)
     else
       render :new
     end
@@ -30,14 +30,12 @@ class InvitesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @user = User.find(@invite.user_id)
     @items = Item.all
-
   end
 
   def destroy
     invite = Invite.find(params[:id])
     invite.destroy
-
-    redirect_to("/")
+    redirect_to trip_invites_path
   end
 
 end

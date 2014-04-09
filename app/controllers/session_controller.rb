@@ -12,7 +12,7 @@ class SessionController < ApplicationController
     #check if we found user and they gave us correct password
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to("/")
+      redirect_to root_path
     #store user id in session in key 'session'
     else
       render(:new)
@@ -24,26 +24,7 @@ class SessionController < ApplicationController
   def destroy
     #in destroy action, setting session: user_id to nil
     session[:user_id] = nil
-    redirect_to("/")
-  end
-
-  def auth
-
+    redirect_to root_path
   end
 
 end
-#     base_url = "https://api.twitter.com/oauth2/token"
-
-
-
-# "Z0Zub3ZjOFE4UERHYnMwOFpBZHFXbDg5NzpzSzFtNnBVeHF5QW9nM2FrcU5z\ndmtDcjRmWDVFQzVnYWx5TTkyNTlqYnVBRDl5ZkVndw==\n"
-
-#     auth = HTTParty.post(base_url,
-#               :headers => {
-#               'Authorization' => 'Basic Z0Zub3ZjOFE4UERHYnMwOFpBZHFXbDg5NzpzSzFtNnBVeHF5QW9nM2FrcU5zdmtDcjRmWDVFQzVnYWx5TTkyNTlqYnVBRDl5ZkVndw==',
-#               'Content-Type' => 'application/x-www-form-urlencoded;charset=UTF-8',
-#               'User-Agent' => 'Twitter'
-#               },
-#               :body => {
-#               'grant_type' => 'client_credentials'
-#               } )

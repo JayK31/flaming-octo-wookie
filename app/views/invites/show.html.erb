@@ -14,7 +14,7 @@
     <% end %>
   <% end %>
 
-  <%= button_to("Delete Item", trip_invite_path(@invite.trip, @invite), method: :delete) %> 
+  <%= button_to("Delete " + @user.name + " From Trip", trip_invite_path(@invite.trip, @invite), method: :delete) %> 
 
 <% else %>
   <h1><%= @user.name %>'s Items for <%= @trip.destination %></h1>

@@ -1,7 +1,9 @@
 <!-- app/views/items -->
 
 <%= link_to('Home', root_path) %><br/>
-<%= link_to('My Trips', trips_users_path(@user)) %>
+<%= link_to('Back to Trip', trip_path(@trip)) %><br/>
+<%= link_to('My Trips', trips_users_path(@user)) %><br/>
+
 
 <h1>Hi <%= @user.name %></h1>
 
