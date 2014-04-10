@@ -32,5 +32,14 @@ class Item < ActiveRecord::Base
     statuses = json_result_body["statuses"]
     texts = statuses.map { |status| status["text"]}
   end
+
+  # create method to check if item is claimed
+  def claim
+    if self.is_claimed == true
+      "Yes, someone is bringing this item."
+    else
+      "Nope, click on the item name to bring the item!"
+    end
+  end
 end
 

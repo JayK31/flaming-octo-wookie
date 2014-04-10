@@ -2,17 +2,5 @@
 <%= link_to('Home', root_path) %>
 
 <h1>Items for <%= @trip.destination %></h1>
-<% @items.each do |item| %>
-    <% if @trip.id == item.trip_id %>
-      <p>Item: <%= link_to(item.name.capitalize, trip_item_path(@trip, item)) %></p>
-      <p>Description: <%= item.description %></p>
-      <p>Is someone bringing this item?</p>
-      <% if item.is_claimed? %>
-        <p><strong>Yes, someone is bringing this item.</strong></p>
-      <% else %>
-        <p><strong>Nope, click on the item name to bring the item!</strong></p>
-      <% end %>
 
-    <% end %>
-<% end %>
-
+<%= render partial: "item_index", locals: @item %>

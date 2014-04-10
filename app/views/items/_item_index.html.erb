@@ -1,0 +1,20 @@
+<!-- app/views/items - for the items index.html.erb page -->
+
+<% @items.each do |item| %>
+  <% if item.trip == @trip %>
+    Item: <%= link_to(item.name.capitalize, trip_item_path(item.trip, item)) %><br/>
+    Description: <%= item.description %><br/>
+    Is someone bringing this item?<br/>
+    <%= item.claim %><br/>
+  <% end %>
+<% end %>
+
+
+
+<!--  <#% if item.is_claimed? %>
+      <strong>Yes, someone is bringing this item.</strong><br/><br/>
+    <#% else %>
+      <strong>Nope, click on the item name to bring the item!</strong><br/>
+      <br/>
+    <#% end %>
+  <#% end %> -->

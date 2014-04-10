@@ -1,6 +1,5 @@
 <!-- create _form for items -->
 <%= form_for([@trip, @item]) do |f| %>
-  <%= hidden_field(:trip_id, @trip.id) %>
   <%= f.label(:name) %>
   <%= f.text_field(:name) %>
   <%= f.label(:quantity) %>
