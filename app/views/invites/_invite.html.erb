@@ -1,0 +1,3 @@
+  <% if invite.trip == @trip %>
+      <p><%= link_to(invite.user.name, trip_invite_path(@trip, invite)) %></p>
+  <% end %>

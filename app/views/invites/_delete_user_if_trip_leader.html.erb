@@ -1,0 +1,8 @@
+<!-- app/views/invites - for the show.html.erb page
+  
+  -check to see if the current_user is the trip group leader, and if so, gives him permission to delete the person from this trip
+ -->
+
+<% if current_user.id == @trip.user_id %>
+  <%= button_to("Delete " + @user.name + " From Trip", trip_invite_path(@invite.trip, @invite), method: :delete) %> 
+<% end %>

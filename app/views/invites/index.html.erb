@@ -4,8 +4,6 @@
 <h1>Trip from <%= @trip.start %> to <%= @trip.destination %></h1>
 
 <h2>Here's a list of people coming on the trip</h2>
-<% @invites.each do |invite| %>
-  <% if invite.trip_id == @trip.id %>
-      <p><%= link_to(invite.user.name, trip_invite_path(@trip, invite)) %></p>
-  <% end %>
-<% end %>
+<%= render partial: "invite", collection: @invites, as: "invite" %>
+
+<!-- rendering a partial called _invite, with logic and link_to in _invite.html.erb -->
