@@ -1,0 +1,6 @@
+<!-- app/views/items - in show -->
+<%= form_for([@trip, @item], method: "put") do |f| %>
+  <%= f.hidden_field(:is_claimed, value: true ) %>
+  <%= f.hidden_field(:user_id, value: @user.id) %>
+  <%= f.submit("Bring This Item!") %>
+<% end %>

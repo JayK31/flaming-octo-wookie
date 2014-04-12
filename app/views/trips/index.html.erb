@@ -5,12 +5,12 @@
 <h1>My Upcoming Trips</h1>
 
 <!-- Matching the current_user id with the trip user id in order to show the current user's trips -->
-
-<% @trips.each do |trip| %>
-  <% if session[:user_id] == trip.user_id %>      
+<% @trips.each do |trip| %>  
+  <% if current_user.id == trip.user_id %>  
       <%= link_to(trip.start + ' to ' + trip.destination, trip_path(trip)) %><strong> (*Group Leader)</strong><br/>
    <% end %>
 <% end %>
+
 <!-- needs refactoring
 -idea is to find the invites that include the current user name, and find the trip that the current user is on
 -will redirect them to the trip, but will not have group leader priviledges
@@ -22,7 +22,7 @@
   -ugly but it works -->
 <% @invite.each do |invite| %>
   <% if invite.user_id == current_user.id %>
-    <%= link_to(invite.trip.start + ' to ' + invite.trip.destination, trip_invites_path(invite.trip, invite)) %><br/>
+    <%= link_to(invite.trip.start + ' to ' + invite.trip.destination, trip_path(invite.trip)) %><br/>
   <% end %>
 <% end %>
 

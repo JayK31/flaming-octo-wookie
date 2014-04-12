@@ -2,15 +2,15 @@
 
 <%= link_to('Home', root_path) %>
 
+
+
 <h1>Create A Trip</h1>
 <strong>Create a trip and start your adventure. You'll be able to add items and invite people on your trip.</strong><br/>
 
-<!-- @user is in both the new and create actions
+<!-- @trip is in both the new and create actions
 when we render it under `new` there are no errrors
 but if we render it under `create` there will be errors -->
-<% @trip.errors.messages.each do |attr, message| %>
-  <p>WOMP! It looks like your <%= attr %> <%= message.join %>. Fix it, bro!</p>
-<% end %>
+<%= render 'error' %>
 
 <%= render 'form' %>
 

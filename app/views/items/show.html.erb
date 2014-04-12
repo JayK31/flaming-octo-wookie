@@ -6,31 +6,20 @@
 
 
 <h1>Hi <%= @user.name %></h1>
-
 Item: <%= @item.name.capitalize %><br/>
 For Trip: <%= @trip.destination %><br/>
-
-<%= link_to('Edit Item', edit_trip_item_path(@item.trip, @item)) %><br/>
+<%= link_to('Edit Item', edit_trip_item_path(@item.trip, @item)) %><br/><br/>
 
 <!-- update item to include user_id and claimed if user wants to bring item -->
 <% if @item.is_claimed == false %>
-  <p>Click the button below to 'claim' this item. Once you commit to bringing the item, it's on you to not be that guy or girl who forgets it</p>
-  <%= form_for([@trip, @item], method: "put") do |f| %>
-    <%= f.hidden_field(:is_claimed, value: true ) %>
-    <%= f.hidden_field(:user_id, value: @user.id) %>
-    <%= f.submit("Bring This Item!") %>
-  <% end %>
+  Click the button below to 'claim' this item. Once you commit to bringing the item, it's on you to not be that guy or girl who forgets it.<br/>
+  <%= render 'bring_item_form' %>
 <% else %>
-  <p><%= @item.user_id %> is bringing this item, <%= @item.name %></p>
+  <%= @item.user_id %> is bringing this item, <%= @item.name %><br/>
 <% end %>
 
 <!-- use button to delete trip for now -->
-<!-- only allow trip creators to delete trip -->
-<% if @trip.user_id == session[:user_id] %>
+<%= render partial: 'remove_item' %><br/><br/>
 
-  <%= button_to("Delete This Item", trip_item_path(@item.trip, @item), method: :delete) %>
- 
-<% end %>
-
-<p><a href="/trips/<%= @trip.id %>/items/<%= @item.id %>/tweets"><%= image_tag("twitter.png", size: "150x150", alt: "Find Tweets ") %></a></p>
+<a href="/trips/<%= @trip.id %>/items/<%= @item.id %>/tweets"><%= image_tag("twitter.png", size: "150x150", alt: "Find Tweets ") %></a>
 

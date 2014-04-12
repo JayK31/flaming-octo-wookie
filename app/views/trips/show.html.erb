@@ -9,17 +9,17 @@
 <%= link_to('Add Item to Trip', new_trip_item_path(@trip, @item)) %><br/>
 <%= link_to('View Trip Items', trip_items_path(@trip, @item)) %><br/>
 <%= link_to("Who's Going?", trip_invites_path(@trip, @invite)) %><br/>
+<br/>
 
 <!-- roundabout way to create a group leader
       -if the trip was not created by the user (@trip.user_id), then do not display the
           group leader options below -->
-<br/>
-<% if @trip.user_id == session[:user_id] %>
+
+<% if @trip.user_id == current_user.id %>
   <strong>Group Leader Options</strong><br/>
   <%= link_to('Edit Trip', edit_trip_path(@trip)) %><br/>
   <%= link_to('Invite/Add User to Trip', new_trip_invite_path(@trip, @invite)) %><br/>
-
-  <%= button_to("Delete Trip", trip_path(@trip), method: :delete) %>
+  <%= link_to("Delete Trip", trip_path(@trip), method: :delete) %>
 <% end %>
 
 

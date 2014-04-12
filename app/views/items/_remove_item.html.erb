@@ -1,0 +1,5 @@
+<!-- app/views/items - in show -->
+<!-- if current user = trip leader, allow them to remove item -->
+<% if @trip.user_id== current_user.id %>
+  <%= link_to("Delete This Item", trip_item_path(@item.trip, @item), method: :delete) %> 
+<% end %>
