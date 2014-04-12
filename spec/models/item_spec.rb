@@ -38,5 +38,8 @@ describe Item do
   it "Item#search" do
     expect( item.search ).to be_a(Array)
   end
+  it "Item#claim" do
+    expect( item.claim ).to be_a(String)
+  end
 end
 

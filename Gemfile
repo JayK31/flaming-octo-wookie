@@ -65,6 +65,7 @@ group :development, :test do
   gem 'shoulda-matchers'
 #generate diagrams based on models
   gem 'rails-erd'
+  gem 'nyan-cat-formatter'
 end
 
 #Enable static asset serving, logging on Heroku

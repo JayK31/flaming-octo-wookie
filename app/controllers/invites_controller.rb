@@ -11,12 +11,10 @@ class InvitesController < ApplicationController
   end
 
   def create
+    binding.pry
     user = User.find_by(email: params[:invite][:email])
-    @invite = Invite.new(
-      trip_id: params[:invite][:trip_id],
-      email: params[:invite][:email],
-      user_id: user.id
-      )
+    @invite = Invite.new(invite_params)
+    @invite[:user_id] = user.id
 
     if @invite.save
       redirect_to trip_invite_path(@invite.trip, @invite)
@@ -36,6 +34,15 @@ class InvitesController < ApplicationController
     invite = Invite.find(params[:id])
     invite.destroy
     redirect_to trip_invites_path
+  end
+
+  private
+
+  def invite_params
+    params.require(:invite).permit(
+      :email,
+      :trip_id
+    )
   end
 
 end
