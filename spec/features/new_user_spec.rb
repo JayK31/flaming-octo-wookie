@@ -31,6 +31,13 @@ describe 'visiting the site' do
         expect( page ).to have_content("WOMP!")
       end
     end
+    describe 'being a logged in user' do
+      let(:user) { FactoryGirl.build(:user) }
+      it 'welcomes the logged in user' do      
+        create_account(user)
+        expect( page ).to have_content( "Hello Kimbo slice" )
+      end
+    end
   end
 end
 
@@ -42,4 +49,11 @@ def create_account(user)
   fill_in("Password", with: user.password)
   fill_in("Password confirmation", with: user.password_confirmation)
   click_button 'Create User'
+end
+
+def login(user)
+  click_link 'Login'
+  fill_in('Email', with: user.email)
+  fill_in('Password', with: user.password)
+  click_button 'Login'
 end
