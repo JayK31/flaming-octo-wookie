@@ -65,7 +65,14 @@ group :development, :test do
   gem 'shoulda-matchers'
 #generate diagrams based on models
   gem 'rails-erd'
+#generate sweet cats
   gem 'nyan-cat-formatter'
+#test acceptance stories
+  gem 'capybara'
+#create objects with fgr
+  gem 'factory_girl_rails'
+#tell me how crappy my code is
+  gem 'rubocop'
 end
 
 #Enable static asset serving, logging on Heroku
