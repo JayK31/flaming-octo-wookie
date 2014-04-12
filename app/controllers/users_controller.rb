@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         #tell usermailer to send welcome email
         UserMailer.welcome_email(@user).deliver
-        format.html { redirect_to(@user, notice: "Congratulations, you've successfully signed up!.") }
+        format.html { redirect_to(@user, notice: "Congratulations, you've successfully signed up!") }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: 'new' }
