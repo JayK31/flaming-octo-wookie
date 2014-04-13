@@ -2,6 +2,7 @@ class InvitesController < ApplicationController
 
   def index
     @trip = Trip.find(params[:trip_id])
+    @trip_leader = User.find_by(id: @trip.user_id)
     @invites = Invite.all
   end
 

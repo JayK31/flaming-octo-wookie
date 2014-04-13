@@ -1,3 +1,7 @@
-  <% if invite.trip == @trip %>
-      <p><%= link_to(invite.user.name, trip_invite_path(@trip, invite)) %></p>
+  <% @invites.each do |invite| %>
+    <% if invite.trip == @trip %>
+        <%= link_to(invite.user.name, trip_invite_path(@trip, invite)) %><br/>
   <% end %>
+<% end %>
+
+<%= link_to(@trip_leader.name) %>

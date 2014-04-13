@@ -6,8 +6,8 @@
  -->
 
 <%= render 'invites_show_header' %>
-<%= render partial: "item", collection: @items, as: "item" %>  
-<%= render partial: "delete_user_if_trip_leader", collect: ["current_user", @trip, @user], as: "current_user" %>
+<%= render partial: "item", local: @items, as: "item" %>  
+<%= render partial: "delete_user_if_trip_leader", local: current_user %>
 
 
 

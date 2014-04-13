@@ -13,8 +13,8 @@
 class Trip < ActiveRecord::Base
   validates :start, presence: true
   validates :destination, presence: true
-  has_many :items
+  has_many :items, dependent: :destroy
   belongs_to :user, class_name: "User", foreign_key: "user_id"
-  has_many :invites
+  has_many :invites, dependent: :destroy
   has_many :users, :through => :invites
 end

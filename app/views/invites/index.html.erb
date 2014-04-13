@@ -4,6 +4,6 @@
 <h1>Trip from <%= @trip.start %> to <%= @trip.destination %></h1>
 
 <h2>Here's a list of people coming on the trip</h2>
-<%= render partial: "invite", collection: @invites, as: "invite" %>
+<%= render partial: "invite", local: @invite, as: "invite" %>
 
 <!-- rendering a partial called _invite, with logic and link_to in _invite.html.erb -->
