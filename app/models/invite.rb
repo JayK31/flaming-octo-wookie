@@ -14,6 +14,10 @@
 class Invite < ActiveRecord::Base
   belongs_to :user
   belongs_to :trip
+
+  def existing_user    
+    return true if @invites.include? @user
+  end
 end
 
 

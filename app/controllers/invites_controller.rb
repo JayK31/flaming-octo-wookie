@@ -11,10 +11,9 @@ class InvitesController < ApplicationController
   end
 
   def create
-    binding.pry
-    user = User.find_by(email: params[:invite][:email])
+    @user = User.find_by(email: params[:invite][:email])
     @invite = Invite.new(invite_params)
-    @invite[:user_id] = user.id
+    @invite[:user_id] = @user.id
 
     if @invite.save
       redirect_to trip_invite_path(@invite.trip, @invite)
