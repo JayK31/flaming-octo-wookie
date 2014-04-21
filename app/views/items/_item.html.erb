@@ -1,0 +1,10 @@
+<!-- app/views/items - for the items index.html.erb page -->
+<% if item.trip == @trip %>
+  Item: <%= link_to(item.name.capitalize, trip_item_path(item.trip, item)) %><br/>
+  Description: <%= item.description %><br/>
+  Is someone bringing this item?<br/>
+  <%= item.claim %><br/>    
+  <%= link_to('Edit Item', edit_trip_item_path(item.trip, item)) %><br/><br/>
+<% end %>
+
+
