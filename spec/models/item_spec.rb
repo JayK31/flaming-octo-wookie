@@ -33,11 +33,11 @@ describe Item do
     it { should validate_presence_of(:quantity) }
     it { should validate_presence_of(:description) }
     it { should belong_to(:trip) }
-    it { should have_many(:users) }
+    # it { should have_many(:users) }
   end
-  it "Item#search" do
-    expect( item.search ).to be_a(Array)
-  end
+  # it "Item#search" do
+  #   expect( item.search ).to be_a(Array)
+  # end
   it "Item#claim" do
     expect( item.claim ).to be_a(String)
   end

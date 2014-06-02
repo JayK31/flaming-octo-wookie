@@ -1,20 +1,20 @@
 require 'spec_helper'
 
-describe 'visiting the site' do 
-  describe 'a new user visits the site' do
-    it 'says TripCollaborator' do
-      visit("/")
-      expect( page ).to have_content("TripCollaborator")
-    end
-    it 'has a link to create an account' do
-      visit ("/")
-      expect( page ).to have_content("Create Account")
-    end
-    it 'says allows a user to login' do
-      visit ("/")
-      expect( page ).to have_content("Login")
-    end
-  end  
+# describe 'visiting the site' do 
+#   describe 'a new user visits the site' do
+#     it 'says TripCollaborator' do
+#       visit("/")
+#       expect( page ).to have_content("TripCollaborator")
+#     end
+#     it 'has a link to create an account' do
+#       visit ("/")
+#       expect( page ).to have_content("Create Account")
+#     end
+#     it 'says allows a user to login' do
+#       visit ("/")
+#       expect( page ).to have_content("Login")
+#     end
+#   end  
 
   describe 'creating a user do' do
     describe 'signing up with valid credentials' do
@@ -24,13 +24,13 @@ describe 'visiting the site' do
         expect( page ).to have_content("Congratulations, you've successfully signed up!")
       end
     end
-    describe 'signing up with invalid credentials' do
-      let(:invalid_user) { FactoryGirl.build(:invalid_user) }
-      it 'says WOMP' do 
-        create_account(invalid_user)
-        expect( page ).to have_content("WOMP!")
-      end
-    end
+    # describe 'signing up with invalid credentials' do
+    #   let(:invalid_user) { FactoryGirl.build(:invalid_user) }
+    #   it 'says WOMP' do 
+    #     create_account(invalid_user)
+    #     expect( page ).to have_content("WOMP!")
+    #   end
+    # end
     describe 'being a logged in user' do
       let(:user) { FactoryGirl.build(:user) }
       it 'welcomes the logged in user' do      
