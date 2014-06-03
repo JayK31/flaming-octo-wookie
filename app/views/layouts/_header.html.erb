@@ -8,11 +8,8 @@
     </ul>
     <section class="top-bar-section">
       <ul class="right">
-        <!-- <li class="divider"></li> -->
-        <li>Sign Up</li>
-        <li class="divider"></li>
-        <li>Login</li>
-        <!-- <li class="divider"></li> -->
+        <li><%= link_to "Sign Up", new_user_path %></li>
+        <li><%= link_to "Login", session_new_path %></li>
       </ul>
     </section>
   </nav>
@@ -21,5 +18,6 @@
 
 </nav>
       
+
 
 <!-- <#%= image_tag("trip.png", size: "150x75", alt: "Trip Collaborator") %>  -->

@@ -1,16 +1,19 @@
 <h1>Welcome to TripCollaborator</h1>
 <p>TripCollaborator allows you to create adventures and add lists to them. Add items to the list so you don't forget anything! Soon you'll be able to add other users to your trip to create groups, and you'll be able to collaborate on the list items. No more wondering who's bringing what!</p>
 
-<% if logged_in? %>
-  <h3>Hi <%= current_user.name.capitalize %></h3>
+
+<!-- <#% if logged_in? %> -->
+  <!-- <h3>Hi <#%= current_user.name.capitalize %></h3> -->
 
   <!-- using link_to instead of a href -->
-  <%= link_to "My Account Page" , user_path(current_user), class: "welcome_links" %><br/>
-  <%= link_to "View My Trips" , trips_users_path(current_user), class: "welcome_links" %><br/>
-  <%= link_to "Create A New Trip", new_trip_path, class: "welcome_links" %><br/>
-  <%= link_to "Logout", logout_path, class: "welcome_links" %><br/>
-<% else %>
-  <%= link_to "Create Account", new_user_path, class: "welcome_links" %><br/>
-  <%= link_to "Login", session_new_path, class: "welcome_links" %><br/>
-<% end %>
+  <!-- <#%= link_to "My Account Page" , user_path(current_user), class: "welcome_links" %><br/> -->
+  <!-- <#%= link_to "View My Trips" , trips_users_path(current_user), class: "welcome_links" %><br/> -->
+  <!-- <#%= link_to "Create A New Trip", new_trip_path, class: "welcome_links" %><br/> -->
+  <!-- <#%= link_to "Logout", logout_path, class: "welcome_links" %><br/> -->
+<!-- <#% else %> -->
+  <!-- <#% render 'layouts/header' %> -->
+<!-- <#% end %> -->
+
+
+
 
