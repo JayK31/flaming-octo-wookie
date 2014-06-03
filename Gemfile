@@ -77,3 +77,5 @@ end
 
 #Enable static asset serving, logging on Heroku
 gem 'rails_12factor', group: :production
+
+gem 'zurb-foundation'
