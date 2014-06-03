@@ -24,14 +24,10 @@
   <body>
 
     <% if logged_in? %>
+      <%= render '/layouts/logged_in_header' %>
       <h3>Hi <%= current_user.name.capitalize %></h3>
-      <!-- using link_to instead of a href -->
-      <%= link_to "My Account Page" , user_path(current_user), class: "welcome_links" %><br/>
-      <%= link_to "View My Trips" , trips_users_path(current_user), class: "welcome_links" %><br/>
-      <%= link_to "Create A New Trip", new_trip_path, class: "welcome_links" %><br/>
-      <%= link_to "Logout", logout_path, class: "welcome_links" %><br/>
     <% else %>
-      <%= render '/layouts/header' %>
+      <%= render '/layouts/new_user_header' %>
     <% end %>
 
     <% if flash[:error] %>

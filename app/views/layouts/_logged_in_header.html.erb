@@ -1,0 +1,21 @@
+<header>
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name">
+        <h1>TripCollaborator</h1>
+      </li>
+    </ul>
+    <section class="top-bar-section">
+      <ul class="right">
+        <li><%= link_to "My Account Page", user_path(current_user) %></li>
+        <li><%= link_to "View My Trips", trips_users_path(current_user) %></li>
+        <li><%= link_to "Create a New Trip", new_trip_path %></li>
+        <li><%= link_to "Logout", logout_path %>
+      </ul>
+    </section>
+  </nav>
+</header><!-- #header -->
+
+
+</nav>
+  
