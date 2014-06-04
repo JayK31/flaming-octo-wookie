@@ -1,11 +1,23 @@
 <!-- app/views/users -->
-<%= link_to('Home', root_path) %>
 
-<h1>Hello <%= @user.name.capitalize %></h1>
 
-<%= link_to('Update My Account Info', edit_user_path(@user)) %><br/>
-<%= link_to('View My Trips', trips_users_path(@user)) %><br/>
-<%= link_to('Create New Trip', new_trip_path(@trip)) %><br/>
-<%= link_to('Delete My Account', user_path(@user), method: :delete) %><br/>
-<%= link_to('Logout', logout_path) %><br/>
+<div class="user-show-page">
+  <div class="row">
+    <div class="small-9 columns">
+      <p>content</p>
+    </div> <!-- end .small-9 columns -->
+    <div class="small-3 columns">
+      <h2>My Account</h2>
+      <p>Image Here</p>
+      <p>Name: <%= @user.name.capitalize %></p>
+      <p>Email: <%= @user.email %></p>
+      <ul>
+        <li><%= link_to('Update My Account', edit_user_path(@user)) %>
+        <li><%= link_to('Delete My Account', user_path(@user), method: :delete) %>
+      </ul>
+    </div> <!-- end .small-3 columns -->
+  </div> <!-- end .row -->
+</div> <!-- end .user-show-page -->
+
+
 

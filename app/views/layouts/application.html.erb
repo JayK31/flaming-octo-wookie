@@ -18,14 +18,13 @@
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
-    <%= csrf_meta_tags %>
+      <%= csrf_meta_tags %>
   </head>
 
   <body>
 
     <% if logged_in? %>
       <%= render '/layouts/logged_in_header' %>
-      <h3>Hi <%= current_user.name.capitalize %></h3>
     <% else %>
       <%= render '/layouts/new_user_header' %>
     <% end %>
