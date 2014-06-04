@@ -1,11 +1,19 @@
-<%= form_for(@user) do |f| %>
-  <%= f.label(:name) %>
-  <%= f.text_field(:name) %>
-  <%= f.label(:email) %>
-  <%= f.text_field(:email) %>
-  <%= f.label(:password) %>
-  <%= f.password_field(:password) %>
-  <%= f.label(:password_confirmation) %>
-  <%= f.password_field(:password_confirmation) %>
-  <%= f.submit %>
+<%= form_for :@user do |f| %>
+  <div class='row sign-up-form'>
+    <div class='large-4 columns'>
+      <%= f.label :name  %>
+      <%= f.text_field :name %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div> <!-- end .large-4 columns -->
+  </div> <!-- end .row -->
+  <%= f.submit("Sign Up") %>
 <% end %>
+
+
+
+

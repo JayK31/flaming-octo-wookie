@@ -1,12 +1,14 @@
 <!-- app/views/users -->
-<%= link_to('Home', root_path) %>
 
-<h1>Sign Up for Trip Collab</h1>
-<strong>By signing up, you'll have access to tons of features, most of which have not been developed yet. But they will be.</strong><br/>
+<div class="sign-up-page">
+  <h2>Sign Up</h2>
+  <p><strong>By signing up, you'll have access to tons of features,<br/> 
+  most of which have not been developed yet. But they will be.</strong></p>
 
-<!-- @user is in both the new and create actions
-when we render it under `new` there are no errrors
-but if we render it under `create` there will be errors -->
-<%= render 'error' %>
+  <!-- @user is in both the new and create actions
+  when we render it under `new` there are no errrors
+  but if we render it under `create` there will be errors -->
+  <%= render 'error' %>
 
-<%= render 'form' %>
+  <%= render 'form' %>
+</div> <!-- end .sign-up-page -->
