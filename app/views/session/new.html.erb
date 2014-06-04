@@ -1,13 +1,21 @@
-<h1>Login to TripCollaborator</h1>
 
-<!-- Flash an error if there is no such user -->
-<!-- form_tag because there is no model -->
-<!-- session#create -->
+<div class="login-page">
+  <h2>Login</h2>
 
-<%= form_tag("/session", method: "post") do %>
-  <%= label_tag(:email) %>
-  <%= text_field_tag(:email) %>
-  <%= label_tag(:password) %>
-  <%= password_field_tag(:password) %>
-  <%= submit_tag("Login") %>
+  <!-- Flash an error if there is no such user -->
+  <!-- form_tag because there is no model -->
+  <!-- session#create -->
+
+  <%= form_tag("/session", method: "post") do %>
+    <div class='row login-form'>
+      <div class='large-4 columns'>
+        <%= label_tag :email %>
+        <%= text_field_tag :email %>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+        <%= submit_tag "Login", class: 'form-button' %>
+      </div> <!-- end .large-4 columns -->
+    </div> <!-- end .row -->
+  </div> <!-- end .login-page -->
 <% end %>
+

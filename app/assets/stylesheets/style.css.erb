@@ -43,11 +43,13 @@ background: black;
 }
 
   
-.sign-up-page {
+.sign-up-page, .login-page {
+  height: 850px;
+  width: 100%;
   text-align: center;
 }
 
-.sign-up-page h2 {
+.sign-up-page, .login-page h2 {
   padding: 10px 0;
   margin: 0;
 }
@@ -57,19 +59,32 @@ background: black;
   padding: 0 0 5px 0;
 }
 
-.sign-up-form {
+.sign-up-form, .login-form {
   padding: 0;
   margin: 0 auto;
   text-align: center;
   margin-left: 475px;
 }
 
-.sign-up-form input {
+.sign-up-form input, .login-form input {
   border-radius: 5px;
 }
 
+/*.login-form input {
+  border-radius: 5px;
+}*/
+
 .sign-up-form label, h2 {
   color: white;
+}
+
+.login-form label, h2 {
+  color: white;
+}
+
+.form-button {
+  color: white;
+  background: black;
 }
 /* ---------------------------------------------- */
 /*experimentations below, accepted changes above*/
