@@ -1,12 +1,19 @@
 <!-- app/views/users -->
-<%= link_to('Home', root_path) %><br/>
-<%= link_to('My Account Page', user_path(@user)) %><br/><br/>
 
 <!-- normally would switch to render form, but in this case don't want user to be able to change password right now -->
-<%= form_for(@user) do |f| %>
-  <%= f.label(:name) %>
-  <%= f.text_field(:name) %>
-  <%= f.label(:email) %>
-  <%= f.text_field(:email) %>
-  <%= f.submit %>
-<% end %>
+
+<div class="edit-user-page">
+  <h2>Update Profile</h2>
+  <p><strong>Change your name or e-mail below.</strong></p>
+  <%= form_for @user do |f| %>
+    <div class='row'>
+      <div class='large-4 columns edit-user-form'>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= f.submit %>
+      </div> <!-- end .large-4 columns edit-user-form -->
+    </div> <!-- end .row -->
+  <% end %>
+</div> <!-- end .edit-user-page -->
