@@ -3,9 +3,18 @@ class TripsController < ApplicationController
   # "/trips"
   def index
     #define current user in order to display trips for that user only
-    @trips = Trip.all
     @user = User.find(session[:user_id])
+    @trips = Trip.where(user_id: @user.id).all
     @invite = Invite.where(user_id: params[:id]).all
+
+    @trips = @trips.each do |trip|
+      "#{trip.start} to #{trip.destination} (Group Leader)"
+    end
+
+    respond_to do |format|
+      format.json { render json: @trips }
+      format.html
+      end
   end
 
   #"/trips" --> direct to form

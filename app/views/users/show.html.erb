@@ -4,7 +4,11 @@
 <div class="user-show-page">
   <div class="row">
     <div class="small-9 columns">
-      <p>content</p>
+      <li><%= link_to "View My Trips", trips_users_path(current_user), class: "view-trips" %></li>
+
+      <div class="trips">
+      </div> <!-- end .trips (used for ajax request) -->
+      
     </div> <!-- end .small-9 columns -->
     <div class="small-3 columns">
       <h2>My Account</h2>

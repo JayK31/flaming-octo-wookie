@@ -1,15 +1,14 @@
 <!-- app/views/trips -->
-<%= link_to('Home', root_path) %>
 
 
-<h1>My Upcoming Trips</h1>
+
+
 
 <!-- Matching the current_user id with the trip user id in order to show the current user's trips -->
-<% @trips.each do |trip| %>  
-  <% if current_user.id == trip.user_id %>  
-      <%= link_to(trip.start + ' to ' + trip.destination, trip_path(trip)) %><strong> (*Group Leader)</strong><br/>
-   <% end %>
-<% end %>
+<!-- <#% @trips.each do |trip| %>   -->
+    <!-- <#%= link_to(trip.start + ' to ' + trip.destination, trip_path(trip)) %><strong> (*Group Leader)</strong><br/> -->
+<!-- <#% end %> -->
+
 
 <!-- needs refactoring
 -idea is to find the invites that include the current user name, and find the trip that the current user is on
