@@ -42,12 +42,17 @@ class UsersController < ApplicationController
 
   #users/:id PUT
   def update
-    user = User.find(params[:id])
-    user.update(
+    @user = User.find(params[:id])
+    if params[:password].blank?
+      params.delete :password
+      params.delete :password_confirmation
+    end
+    @user.update(
       name: params[:user][:name],
-      email: params[:user][:email]
-      )
-    redirect_to user_path(user)
+      email: params[:user][:email],
+    )
+    binding.pry
+    redirect_to user_path(@user)
   end
 
   #users/:id DELETE
