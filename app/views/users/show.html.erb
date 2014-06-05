@@ -9,7 +9,8 @@
     <div class="small-3 columns">
       <h2>My Account</h2>
       <ul class="account-info">
-        <li><%= image_tag @user.avatar_file_name(:medium) %></li>
+        <li><%= image_tag @user.avatar.url(:medium) %></li>
+        <% binding.pry %>
         <li>Name: <%= @user.name.capitalize %></li>
         <li>Email: <%= @user.email %></li>
       </ul>
