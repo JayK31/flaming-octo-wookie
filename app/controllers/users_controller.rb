@@ -52,7 +52,6 @@ class UsersController < ApplicationController
       email: params[:user][:email],
       avatar: params[:user][:avatar]
     )
-    binding.pry
     redirect_to user_path(@user)
   end
 
