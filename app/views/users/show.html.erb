@@ -8,10 +8,12 @@
     </div> <!-- end .small-9 columns -->
     <div class="small-3 columns">
       <h2>My Account</h2>
-      <p>Image Here</p>
-      <p>Name: <%= @user.name.capitalize %></p>
-      <p>Email: <%= @user.email %></p>
-      <ul>
+      <ul class="account-info">
+        <li><%= image_tag @user.avatar.url(:medium) %></li>
+        <li>Name: <%= @user.name.capitalize %></li>
+        <li>Email: <%= @user.email %></li>
+      </ul>
+      <ul class="update-delete">
         <li><%= link_to('Update My Account', edit_user_path(@user)) %>
         <li><%= link_to('Delete My Account', user_path(@user), method: :delete) %>
       </ul>

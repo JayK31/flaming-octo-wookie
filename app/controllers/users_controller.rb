@@ -50,6 +50,7 @@ class UsersController < ApplicationController
     @user.update(
       name: params[:user][:name],
       email: params[:user][:email],
+      avatar: params[:user][:avatar]
     )
     binding.pry
     redirect_to user_path(@user)
