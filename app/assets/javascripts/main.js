@@ -22,7 +22,7 @@ $(document).ready(function() {
         var other_trip = invite[0]
         var url = "/trips/" + other_trip.id
         $("<section>").appendTo(".trips")
-            .append($("<div class='title'>").text(trip.name))
+            .append($("<div class='title'>").text(other_trip.name))
                 .wrap('<a href=' + url + '>')
             .append($("<p>").text(other_trip.start + ' to ' + other_trip.destination))
             .append($("<p>").text('Description: ' + other_trip.description))
