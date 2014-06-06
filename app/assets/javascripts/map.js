@@ -3,8 +3,9 @@ var directionsService = new google.maps.DirectionsService();
 var map;
 
 $(document).ready(function() {
-  initialize();
+  
   renderDirections(directionsDisplay);
+  initialize();
 })
 
 
