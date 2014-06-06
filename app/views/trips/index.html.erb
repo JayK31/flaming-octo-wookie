@@ -19,9 +19,9 @@
 <!-- used find.where(args).all to collect all invites with matchinged user_id,
   then iterated through each @invite object to find match
   -ugly but it works -->
-<% @invite.each do |invite| %>
-  <% if invite.user_id == current_user.id %>
-    <%= link_to(invite.trip.start + ' to ' + invite.trip.destination, trip_path(invite.trip)) %><br/>
-  <% end %>
-<% end %>
+<!-- <#% @invite.each do |invite| %> -->
+  <!-- <#% if invite.user_id == current_user.id %> -->
+    <!-- <#%= link_to(invite.trip.start + ' to ' + invite.trip.destination, trip_path(invite.trip)) %><br/> -->
+  <!-- <#% end %> -->
+<!-- <#% end %> -->
 

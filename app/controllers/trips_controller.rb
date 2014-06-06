@@ -5,14 +5,19 @@ class TripsController < ApplicationController
     #define current user in order to display trips for that user only
     @user = User.find(session[:user_id])
     @trips = Trip.where(user_id: @user.id).all
-    @invite = Invite.where(user_id: params[:id]).all
-
-    @trips = @trips.each do |trip|
-      "#{trip.start} to #{trip.destination} (Group Leader)"
+    @invites = Invite.where(user_id: params[:id]).all.map { |invite|
+      invite.trip.start }
+    @other_trips = @invites.map do |trip|
+      Trip.where(start: trip)
     end
+    
+
+   
+
+    # response = { trips: @trips, invites: @invites}
 
     respond_to do |format|
-      format.json { render json: @trips }
+      format.json { render json: { trips: @trips, invites: @other_trips } }
       format.html
       end
   end

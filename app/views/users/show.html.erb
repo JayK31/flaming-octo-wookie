@@ -7,8 +7,13 @@
       <li><%= link_to "View My Trips", trips_users_path(current_user), class: "view-trips" %></li>
 
       <div class="trips">
+        <!-- need to give JS access to session ID, so that when I make ajax request in main.js it has access to current user
+         -->
+        <%= javascript_tag do %>
+            var userId = '<%= @user.id %>';
+        <% end %>
       </div> <!-- end .trips (used for ajax request) -->
-      
+
     </div> <!-- end .small-9 columns -->
     <div class="small-3 columns">
       <h2>My Account</h2>

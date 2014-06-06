@@ -1,21 +1,22 @@
 $(document).ready(function() {
   $(".view-trips").click(function(event) {
-    alert('hi');
     event.preventDefault();
     $.ajax({
-      url: "/trips/users/2",
+      url: "/trips/users/" + userId,
       method: "GET",
       dataType: "json"
-    }).done(function(trips) {
-      console.log("request complete");
+    }).done(function(data) {
+      $(".trips").empty()
       $("<h1>").appendTo(".trips")
             .text("My Trips")
-      $.each(trips, function(index, trip) {
+      $.each(data.trips, function(index, trip) {
         $("<section>").appendTo(".trips")
             .append($("<p>").text(trip.start));
-
       })
-
+      $.each(data.invites, function(index, invite) {
+        $("<section>").appendTo(".trips")
+            .append($("<p>").text(invite[0].start));
+      })
     })
   })
 })
