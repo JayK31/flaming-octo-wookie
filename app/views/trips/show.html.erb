@@ -1,25 +1,36 @@
 <!-- app/views/trips -->
+<div class='trip-show-page'>
+ <div class="row">
+  <div class="small-9 columns" id="trip-view">
+    <h2>Going to <%= @trip.destination %></h2>
 
-<h1>Going to <%= @trip.destination %></h1>
+    <strong>Trip Details:</strong> <%= @trip.start %> to <%= @trip.destination %><br/>
 
-<strong>Trip Details:</strong> <%= @trip.start %> to <%= @trip.destination %><br/>
+    <!-- re-routed items to be sure they only get added to selected trip -->
+    <%= link_to('Add Item to Trip', new_trip_item_path(@trip, @item)) %><br/>
+    <%= link_to('View Trip Items', trip_items_path(@trip, @item)) %><br/>
+    <%= link_to("Who's Going?", trip_invites_path(@trip, @invite)) %><br/>
+    <br/>
 
-<!-- re-routed items to be sure they only get added to selected trip -->
-<%= link_to('Add Item to Trip', new_trip_item_path(@trip, @item)) %><br/>
-<%= link_to('View Trip Items', trip_items_path(@trip, @item)) %><br/>
-<%= link_to("Who's Going?", trip_invites_path(@trip, @invite)) %><br/>
-<br/>
+    <!-- roundabout way to create a group leader
+          -if the trip was not created by the user (@trip.user_id), then do not display the
+              group leader options below -->
 
-<!-- roundabout way to create a group leader
-      -if the trip was not created by the user (@trip.user_id), then do not display the
-          group leader options below -->
+      <% if @trip.user_id == current_user.id %>
+        <strong>Group Leader Options</strong><br/>
+        <%= link_to('Edit Trip', edit_trip_path(@trip)) %><br/>
+        <%= link_to('Invite/Add User to Trip', new_trip_invite_path(@trip, @invite)) %><br/>
+        <%= link_to("Delete Trip", trip_path(@trip), method: :delete) %>
+      <% end %>
+    </div> <!-- end .small-9 columns -->
 
-<% if @trip.user_id == current_user.id %>
-  <strong>Group Leader Options</strong><br/>
-  <%= link_to('Edit Trip', edit_trip_path(@trip)) %><br/>
-  <%= link_to('Invite/Add User to Trip', new_trip_invite_path(@trip, @invite)) %><br/>
-  <%= link_to("Delete Trip", trip_path(@trip), method: :delete) %>
-<% end %>
 
+    <div class="small-3 columns map" >
+      <div id="my_map_canvas">
+
+      </div> <!-- end of #map-canvas -->
+    </div> <!-- end of .small-3 columns -->
+  </div> <!-- end .row -->
+</div> <!-- end .trip-show-page -->
 
 
