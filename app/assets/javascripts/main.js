@@ -10,6 +10,7 @@ $(document).ready(function() {
       $("<h3>").appendTo(".trips")
             .text("My Trips")
       $.each(data.trips, function(index, trip) {
+        var trip = trip
         var url = "/trips/" + trip.id
         $("<section>").appendTo(".trips")
             .append($("<div class='title'>").text(trip.name))
@@ -18,13 +19,13 @@ $(document).ready(function() {
             .append($("<p>").text('Description: ' + trip.description))
       })
       $.each(data.invites, function(index, invite) {
-        var trip = invite[0]
-        var url = "/trips/" + trip.id
+        var other_trip = invite[0]
+        var url = "/trips/" + other_trip.id
         $("<section>").appendTo(".trips")
             .append($("<div class='title'>").text(trip.name))
                 .wrap('<a href=' + url + '>')
-            .append($("<p>").text(trip.start + ' to ' + trip.destination))
-            .append($("<p>").text('Description: ' + trip.description))
+            .append($("<p>").text(other_trip.start + ' to ' + other_trip.destination))
+            .append($("<p>").text('Description: ' + other_trip.description))
       })
     })
   })

@@ -4,7 +4,7 @@
   <div class="small-9 columns" id="trip-view">
     <h2>Going to <%= @trip.destination %></h2>
 
-    <strong>Trip Details:</strong> <%= @trip.start %> to <%= @trip.destination %><br/>
+    <strong>Trip Details:</strong> <span id="trip-start"><%= @trip.start %></span> to <span id="trip-dest"><%= @trip.destination %></span><br/>
 
     <!-- re-routed items to be sure they only get added to selected trip -->
     <%= link_to('Add Item to Trip', new_trip_item_path(@trip, @item)) %><br/>
