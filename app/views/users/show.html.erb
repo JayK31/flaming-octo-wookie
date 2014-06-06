@@ -4,7 +4,8 @@
 <div class="user-show-page">
   <div class="row">
     <div class="small-9 columns">
-      <li><%= link_to "View My Trips", trips_users_path(current_user), class: "view-trips" %></li>
+      <h2>Dashboard</h2>
+      <li id="view-trip-button"><%= link_to "View My Trips", trips_users_path(current_user), class: "view-trips" %></li>
 
       <div class="trips">
         <!-- need to give JS access to session ID, so that when I make ajax request in main.js it has access to current user

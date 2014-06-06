@@ -7,7 +7,7 @@ $(document).ready(function() {
       dataType: "json"
     }).done(function(data) {
       $(".trips").empty()
-      $("<h1>").appendTo(".trips")
+      $("<h3>").appendTo(".trips")
             .text("My Trips")
       $.each(data.trips, function(index, trip) {
         $("<section>").appendTo(".trips")
