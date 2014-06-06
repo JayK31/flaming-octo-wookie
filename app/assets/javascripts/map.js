@@ -1,9 +1,13 @@
 var directionsDisplay = new google.maps.DirectionsRenderer();
 var directionsService = new google.maps.DirectionsService();
 var map;
+var start = $("#trip-start").text();
+var dest = $("#trip-dest").text();
+
 
 $(document).ready(function() {
-  
+  console.log(start)
+  console.log(dest)
   renderDirections(directionsDisplay);
   initialize();
 })
@@ -22,11 +26,9 @@ function initialize() {
 }
 
 function getDirections() {
-  var start = $("trip-start").text()
-  var dest = $("trip-dest").text()
   return {
-    origin: "New York City, NY",//"String(start)",
-    destination: "San Francisco, CA", //"String(dest)"
+    origin: String(start),
+    destination: String(dest),
     provideRouteAlternatives: true,
     avoidHighways: false,
     travelMode: google.maps.TravelMode.DRIVING
