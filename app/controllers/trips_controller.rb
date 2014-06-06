@@ -17,6 +17,7 @@ class TripsController < ApplicationController
     # response = { trips: @trips, invites: @invites}
 
     respond_to do |format|
+      binding.pry
       format.json { render json: { trips: @trips, invites: @other_trips } }
       format.html
       end
