@@ -1,3 +1,7 @@
+var direction = new google.maps.DirectionsService();
+var start, dest;
+var map;
+
 $(document).ready(function() {
   initialize()
 })
