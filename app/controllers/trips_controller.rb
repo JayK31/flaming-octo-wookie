@@ -5,7 +5,6 @@ class TripsController < ApplicationController
     #define current user in order to display trips for that user only
     @user = User.find(session[:user_id])
     @trips = Trip.where(user_id: @user.id).all
-    binding.pry
     @invites = Invite.where(user_id: params[:id]).all.map { |invite|
       invite.trip.start }
     @other_trips = @invites.map do |trip|

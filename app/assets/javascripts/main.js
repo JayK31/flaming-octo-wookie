@@ -12,14 +12,19 @@ $(document).ready(function() {
       $.each(data.trips, function(index, trip) {
         var url = "/trips/" + trip.id
         $("<section>").appendTo(".trips")
-            .append($("<p>").text(trip.start))
-                .wrap('<a href=' + url + '>');
+            .append($("<div class='title'>").text(trip.name))
+                .wrap('<a href=' + url + '>')
+            .append($("<p>").text(trip.start + ' to ' + trip.destination))
+            .append($("<p>").text('Description: ' + trip.description))
       })
       $.each(data.invites, function(index, invite) {
-        var url = "/trips/" + invite[0].id
+        var trip = invite[0]
+        var url = "/trips/" + trip.id
         $("<section>").appendTo(".trips")
-            .append($("<p>").text(invite[0].start))
-                .wrap('<a href=' + url + '>');
+            .append($("<div class='title'>").text(trip.name))
+                .wrap('<a href=' + url + '>')
+            .append($("<p>").text(trip.start + ' to ' + trip.destination))
+            .append($("<p>").text('Description: ' + trip.description))
       })
     })
   })
