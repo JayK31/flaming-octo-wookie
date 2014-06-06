@@ -26,6 +26,8 @@
 //= require foundation/foundation.topbar
 //= require foundation/foundation.interchange
 //= require foundation/foundation.placeholder
-//= require_tree .
+//= require map
+//= require directions
+//= require main
 
 $(function(){ $(document).foundation(); });

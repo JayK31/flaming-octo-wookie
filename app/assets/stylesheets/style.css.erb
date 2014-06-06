@@ -203,8 +203,9 @@ div.small-9.columns h2 {
   height: 700px;
 }
 
-#trip-view h2 {
+#trip-view h3 {
   border: none;
+  color: white;
 }
 
 .small-3.columns.map {
@@ -213,15 +214,16 @@ div.small-9.columns h2 {
   border: none;
 }
 
-#my_map_canvas {
+#my-map-canvas {
   margin: 0;
   padding: 0;
   width: 600px;
   height: 400px;
   margin-right: 700px;
+  margin-top: -80px;
 }
 
-#my_map_canvas img {
+#my-map-canvas img {
   max-width: none;
 }
 
@@ -229,9 +231,17 @@ div.small-9.columns h2 {
   height: 500px;
   width: 500px;
   border: 1px solid black;
+  float: right;
+  margin-top: -270px;
+  margin-right: 80px;
+  overflow: scroll;
 }
 
-
+/*targeting annoying things on gmaps*/
+.gm-style div {
+  height: 1px;
+  width: 1px;
+}
 /* ---- END Trip Show Page */
 
 /* ---------------------------------------------- */

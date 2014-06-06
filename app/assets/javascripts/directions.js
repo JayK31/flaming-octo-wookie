@@ -1,29 +1,20 @@
-$("#directions-trigger").on('click', function(event){
-event.preventDefault();
-$("#directions").empty();
-renderDirections(render);
-});
+// var start = $("#trip-start").text()
+// var dest = $("#trip-dest").text()
+// var render;
 
-function getDirections() {
-  return {
-    origin: String(start),
-    destination: String(dest),
-    provideRouteAlternatives: true,
-    avoidHighways: false,
-    travelMode: google.maps.TravelMode.DRIVING
-  }
-}
 
-function renderDirections(render) {
-  direction.route(getDirections(), function(response) {
-    console.log(response);
-    render.setMap(map)
-    render.setPanel(document.getElementById("directions"));
-    render.setDirections(response)
-  });
-}
+// function getDirections() {
+//   return {
+//     origin: String(start),
+//     destination: String(dest),
+//     provideRouteAlternatives: true,
+//     avoidHighways: false,
+//     travelMode: google.maps.TravelMode.DRIVING
+//   }
+// }
 
-$(document).ready(function(){
-  var render = new google.maps.DirectionsRenderer();
-    renderDirections(render)
-});
+
+// $(document).ready(function(){
+//     render = new google.maps.DirectionsRenderer();
+//     renderDirections(render);
+// });
