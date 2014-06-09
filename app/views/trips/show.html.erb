@@ -23,14 +23,16 @@
         <%= link_to("Delete Trip", trip_path(@trip), method: :delete) %>
       <% end %>
 
-      <div class='items-list'>
-        <a href='#' class='test-button'>Hi</a>
+      <div id='items'>
+        <h3>Items For the Trip</h3>
+        <input id="new-item" placeholder="Add Item to Bring">
+        <ul id="items-list"></ul>
          <!-- need to give JS access to session ID, so that when I make ajax request in main.js it has access to current user
          -->
         <%= javascript_tag do %>
             var tripId = '<%= @trip.id %>';
         <% end %>
-      </div>
+      </div> <!-- end .items -->
     </div> <!-- end .small-9 columns -->
 
 

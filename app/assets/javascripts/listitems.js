@@ -1,11 +1,19 @@
-// model
-var ListItem = Backbone.Model.extend({
+// model class 
+var TripItem = Backbone.Model.extend({
   urlRoot: '/trips/'+tripId+'/items'
 });
 
-// view
-var ListView = Backbone.View.extend({
-  template: _.template('<h3><%= name %></h3>'),
+// view class
+var TripView = Backbone.View.extend({
+  tagName: 'li', 
+  className: 'item',
+  initialize: function() {
+    this.model.on('hide', this.remove, this);
+  },
+  remove: function() {
+    this.$el.remove();
+  },
+  template: _.template('Item: <%= name %>' + ' ' + 'Description: <%= description %>' + ' ' + 'Claimed? <%= is_claimed %>'),
   // note: h3 event below is scoped to particular el, meaning only the h3 clicked in this particular el will trigger alert
   events: {
     "click h3": "alertStatus"
@@ -14,47 +22,55 @@ var ListView = Backbone.View.extend({
     alert("hey you clicked an h3")
   },
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
+    var attributes = this.model.toJSON();
+    this.$el.html(this.template(attributes));
     return this;
   }
 });
 
-// collection
-var ItemList = Backbone.Collection.extend({
+// collection class
+var TripList = Backbone.Collection.extend({
+  el: '#items-list',
+  tagName: 'ul',
   url: '/trips/'+tripId+'/items',
-  model: ListItem
+  model: TripItem,
+  initialize: function() {
+    this.on('remove', this.hideModel);
+  },
+  hideModel: function(model) {
+    model.trigger('hide');
+  }
 })
 
-// collection view
-var ItemListView = Backbone.View.extend({
+// collection view class
+var TripListView = Backbone.View.extend({
   initialize: function() {
     this.collection.on('add', this.addOne, this);
   },
   render: function() {
     this.collection.forEach(this.addOne, this);
   },
-  addOne: function(listItem) {
-      var listView = new ListView({ model: listItem });
-      this.$el.append(listView.render().el);
+  addOne: function(tripItem) {
+      var tripView = new TripView({ model: tripItem });
+      this.$el.append(tripView.render().el);
   }
 });
 
 // model instance
-var listItem = new ListItem();
+var tripItem = new TripItem();
 
 // view instance
-var listView = new ListView({ model: listItem })
+var tripView = new TripView({ model: tripItem })
 
 
 
 
 // collection instance
-var itemList = new ItemList();
-itemList.fetch();
+var tripList = new TripList();
+tripList.fetch();
 
 
 // collection view instance
-var itemListView = new ItemListView({ collection: itemList });
-itemListView.render();
-$(".items-list").append(itemListView.el)
-// console.log(itemListView.el);  
+var tripListView = new TripListView({ collection: tripList });
+tripListView.render();
+$("#items-list").append(tripListView.el)
