@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore
+//= require backbone
 //= require foundation/foundation
 //= require foundation/foundation.alerts
 //= require foundation/foundation.clearing
@@ -29,5 +31,6 @@
 //= require main
 //= require map
 //= require directions
+//= require listitems
 
 $(function(){ $(document).foundation(); });

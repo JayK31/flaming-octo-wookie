@@ -22,6 +22,15 @@
         <%= link_to('Invite/Add User to Trip', new_trip_invite_path(@trip, @invite)) %><br/>
         <%= link_to("Delete Trip", trip_path(@trip), method: :delete) %>
       <% end %>
+
+      <div class='items-list'>
+        <a href='#' class='test-button'>Hi</a>
+         <!-- need to give JS access to session ID, so that when I make ajax request in main.js it has access to current user
+         -->
+        <%= javascript_tag do %>
+            var tripId = '<%= @trip.id %>';
+        <% end %>
+      </div>
     </div> <!-- end .small-9 columns -->
 
 

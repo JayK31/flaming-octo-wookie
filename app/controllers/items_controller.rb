@@ -3,7 +3,13 @@ class ItemsController < ApplicationController
   # trips/:id/items
   def index
     @items = Item.all
-    @trip = Trip.find(params[:trip_id])
+    trip = Trip.find(params[:trip_id])
+    @items = Item.where(trip_id: trip.id).all
+
+    respond_to do |format|
+      format.json { render json: @items }
+      format.html
+    end
   end
 
   # trips/:/id/items/new --> form
@@ -33,6 +39,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @trip = Trip.find(@item.trip_id)
     @user = User.find(session[:user_id])
+
+    respond_to do |format|
+      format.json { render json: @item }
+      format.html
+    end
   end
 
   #trips/:id/items/:id/edit --> form

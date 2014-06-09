@@ -29,4 +29,20 @@ $(document).ready(function() {
       })
     })
   })
-})
+  // $(".test-button").click(function(event) {
+  //   event.preventDefault();
+  //   $.ajax({
+  //     url: "/trips/"+tripId+"/items",
+  //     method: "GET",
+  //     dataType: "json"
+  //   }).done(function(data) {
+  //     console.log('request complete')
+  //     $.each(data, function(index, item) {
+  //       $("<section>").appendTo(".items-list")
+  //           .append($("<div class='item-name'>").text(item.name))
+  //           .append($("<p>").text(item.description + ' ' + item.trip_id))
+  //     })
+  //   })
+  // })
+
+});
