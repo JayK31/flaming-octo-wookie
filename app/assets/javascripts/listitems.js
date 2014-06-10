@@ -1,4 +1,4 @@
-// $(document).ready(function() {
+$(document).ready(function() {
 
 // model class 
   var TripItem = Backbone.Model.extend({
@@ -88,4 +88,4 @@
   var tripListView = new TripListView({ collection: tripList });
   tripListView.render();
   $("#items").append(tripListView.el)
-// });
+});
