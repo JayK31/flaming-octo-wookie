@@ -26,7 +26,15 @@
       <div id='items'>
         <h3>Items For the Trip</h3>
         <input id="new-item" placeholder="Add Item to Bring">
-        <ul id="items-list"></ul>
+        <input id="new-item-desc" placeholder="Describe the Item">
+        <input id="new-item-quantity" placeholder="How many?">
+        <table id="items-list">
+          <tr>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Claimed?</th>
+          </tr>
+        </table>
          <!-- need to give JS access to session ID, so that when I make ajax request in main.js it has access to current user
          -->
         <%= javascript_tag do %>

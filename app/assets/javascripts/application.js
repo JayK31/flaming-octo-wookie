@@ -29,7 +29,7 @@
 //= require foundation/foundation.interchange
 //= require foundation/foundation.placeholder
 //= require main
-//= require map
+// require map
 //= require directions
 //= require listitems
 
