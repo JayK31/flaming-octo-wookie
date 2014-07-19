@@ -11,10 +11,10 @@ $(document).ready(function() {
     tagName: 'tr',
     className: 'item',
     events: {
-      "click .item-name": "addItem"
+      // "click .item-name": "addItem"
     },
     addItem: function() {
-      debugger;
+      alert('hi')
       var item = $("#new-item").val()
       var description = $("#new-item-desc").val()
       var quantity = $("#new-item-quantity").val()
@@ -48,6 +48,12 @@ $(document).ready(function() {
     },
     hideModel: function(model) {
       model.trigger('hide');
+    },
+    events: {
+      'click .item-name': 'test'
+    },
+    test: function() {
+      alert('hi')
     }
   })
 
@@ -55,7 +61,7 @@ $(document).ready(function() {
   var TripListView = Backbone.View.extend({
     el: "#items-list",
     events: {
-      // "click .item-name": "addOne",
+      "click .item-name": "addOne",
       // "click .item-name": "hiThere"
     },
     // hiThere: function(event) {
@@ -64,13 +70,20 @@ $(document).ready(function() {
     // },
     initialize: function() {
       this.collection.on('add', this.addOne, this);
+      tripList.fetch();
+
     },
     render: function() {
       this.collection.forEach(this.addOne, this);
     },
     addOne: function(tripItem) {
-        var tripView = new TripView({ model: tripItem });
-        this.$el.append(tripView.render().el);
+      // alert('hi')
+      // var name = $("#new-item").val()
+      // var description = $("#new-item-desc").val()
+      var tripView = new TripView({ model: tripItem });
+      // tripView.set({name: name, description: description})
+      this.$el.append(tripView.render().el);
+      console.log('added to view')
     }
   });
 
@@ -82,7 +95,6 @@ $(document).ready(function() {
 
   // collection instance
   var tripList = new TripList();
-  tripList.fetch();
 
   // collection view instance
   var tripListView = new TripListView({ collection: tripList });
